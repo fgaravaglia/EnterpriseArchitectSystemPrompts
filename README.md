@@ -65,7 +65,7 @@ use-case-name/
 - Migration strategies (big bang, strangler fig, phased approach)
 - Technical debt quantification and prioritization
 
----;
+---
 
 ## 📐 Architecture Documentation Generator
 
@@ -94,7 +94,7 @@ use-case-name/
 
 ---
 
-💻 Technology Assessment & Comparison Agent
+## 💻 Technology Assessment & Comparison Agent
 
 **What it's for:** Provide objective, multi-dimensional analysis to support informed technology and architecture decisions.
 
@@ -121,6 +121,31 @@ use-case-name/
 ---
 
 ## 🏗️ Architectural Review
+
+**What it's for:** Conduct comprehensive, structured reviews of existing or proposed architectures to identify risks, anti-patterns, and improvement opportunities before issues reach production.
+
+**When to use:**
+
+- Reviewing greenfield system designs before development starts.
+- Validating microservices architectures for distributed monolith symptoms or improper boundaries.
+- Assessing production readiness before launch (go/no-go decisions).
+- Evaluating legacy systems for modernization opportunities.
+- Conducting security architecture reviews and threat validation.
+- Performing post-launch architecture health checks.
+
+**What you get:**
+
+- Executive Summaries for leadership with Red/Yellow/Green status and critical issues prioritized.
+- Detailed Technical Reviews for architects and developers with findings across 9 dimensions and specific remediation plans.
+- Prioritized Issue Lists with severity classification (Critical/High/Medium/Low) and effort estimates.
+- Actionable Recommendations with code examples, alternatives, and clear next steps with ownership.
+
+**Covers:**
+
+- Multi-Dimensions analysis
+- Quality Gates: Five progressive checkpoints from Conceptual Design through Post-Launch Review.
+- Anti-Pattern Detection: Distributed Monolith, God Services, Chatty APIs, Shared Mutable State, and 20+ common architectural smells.
+- Key Scenarios: New system design, Microservices evaluation, Cloud migration, API design, Security review, Legacy modernization, Performance optimization.
 
 ---
 
