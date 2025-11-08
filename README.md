@@ -2,7 +2,7 @@
 
 **Transform your LLM into your expert Enterprise Architect advisor** with professional agents covering architecture decisions, engineering metrics, technology roadmaps, and risk management.
 
----;
+---
 
 ## 🎯 What is EASP Content?
 
@@ -22,12 +22,10 @@ Think of it like having an experienced EA advisor available 24/7:
 4. **Architectural review** - Reviews architectural designs, identifying risks, anti-patterns, and opportunities for improvement.
 5. **Cloud Migration Strategy Planner** - Design a comprehensive, risk-mitigated strategy for migrating from on-premises to a target cloud environment.
 
-
 TO DO LIST:
 
 - **Architecture Documentation Generator**: to complete examples
 - **Technology Assessment**: to complete example for framework comparison
-
 
 ## 📂 Repository Structure
 
@@ -40,7 +38,7 @@ use-case-name/
 +-- SystemPrompt.md     # The ready-to-use prompt
 ```
 
----;
+---
 
 ## 🏗️ Architecture Decision Agent
 
@@ -81,45 +79,50 @@ use-case-name/
 - Communicating system boundaries and dependencies to a non-technical audience.
 
 **What you get:**
+
 - System Context Diagram (High-level boundary definition, following C4 model principles).
 - Technology/Application Inventory (Categorized list of components, versions, and owners).
 - Cross-Cutting Concerns Summary (How security, logging, and observability are implemented).
 - Stakeholder-Specific Views (e.g., Security View, Operational Runbook, Business Capability Map).
 
 **Covers:**
+
 - Component and relationship mapping (dependencies).
 - Technology lifecycle status (e.g., traffic light assessment).
 - Data flows and information security boundaries.
 - Alignment of systems to business capabilities.
 
----;
+---
 
 💻 Technology Assessment & Comparison Agent
 
 **What it's for:** Provide objective, multi-dimensional analysis to support informed technology and architecture decisions.
 
 **When to use:**
+
 - Comparing multiple technology alternatives (e.g., React vs Vue, SQL vs NoSQL).
 - Evaluating new frameworks, patterns, or architectural approaches.
 - Assessing technologies across critical dimensions like Technical Fit, Operational Burden, and Business Alignment.
 - Calculating Total Cost of Ownership (TCO) and Cost-Benefit Analysis for a strategic technology choice.
 
 **What you get:**
+
 - Executive Summaries for management, highlighting key benefits and risks.
 - Technical Deep Dives for architects, covering detailed analysis across six core dimensions.
 - Structured Comparison Matrices with weighted scoring and quantified trade-offs.
 - Actionable Recommendations with clear next steps (e.g., POC plans) and confidence levels.
 
 **Covers:**
+
 - Six Core Dimensions: Technical Fit, Maturity & Ecosystem, Operational Considerations, Developer Experience, Business Alignment, and Team & Organization.
 - Assessment Frameworks: Technology Radar (Adopt/Trial/Hold), Risk-Value Matrix, and Decision Matrix (Weighted Scoring).
 - Key Scenarios: Database Selection, Frontend Frameworks, Cloud Provider comparison, API Style (REST vs GraphQL), and Architecture Pattern comparison.
 
----;
+---
 
 ## 🏗️ Architectural Review
 
----;
+---
 
 ## ☁️ Cloud Migration Strategy Planner
 
@@ -153,7 +156,7 @@ When using the `SystemPrompt.md` for Technology Assessment, you must explicitly 
 
 > "Analyze Technology X based on the five dimensions in the `scoring-framework.md` provided. **Force your response to use a Score (1-10) and provide a concise justification for each dimension**, even if you need to simulate external research or make assumptions (which must be stated). Use the following weights: Technical Fit: 9, Operational Maturity: 6, Ecosystem & Viability: 7, Security & Compliance: 8, TCO: 5."
 
----;
+---
 
 ## 💡 How to use the prompts
 
@@ -219,6 +222,6 @@ For questions, suggestions, or discussions:
 - Open an Issue on GitHub
 - Contribute with a Pull Request
 
----;
+---
 
 **Note:** These prompts are support tools. The experience, judgment, and context knowledge of an Enterprise Architect remain irreplaceable.
