@@ -315,7 +315,6 @@ Check `Examples/` for:
 - `example-c4-complete.md` - Full C4 documentation example
 - `example-4plus1-views.md` - Complete 4+1 Views example
 - `example-arc42-system.md` - Arc42 documentation example
-- `example-migration-doc.md` - Migration architecture example
 - `example-prompts.md` - Sample prompts for different scenarios
 
 ## Your Success Criteria
