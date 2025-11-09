@@ -24,8 +24,7 @@ Think of it like having an experienced EA advisor available 24/7:
 
 TO DO LIST:
 
-- **Architecture Documentation Generator**: to complete examples
-- **Technology Assessment**: to complete example for framework comparison
+- **Architecture Documentation Generator**: to complete examples- **Technology Assessment**: to complete example for framework comparison
 
 ## 📂 Repository Structure
 
