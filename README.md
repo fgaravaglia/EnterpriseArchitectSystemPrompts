@@ -24,8 +24,8 @@ Each agent in this repository is engineered to handle a critical phase of the ar
 
 Think of it like having an experienced EA advisor available 24/7:
 
-| Agent                         | Strategic Function            | Business Impact |
-|-------------------------------|-------------------------------|-----------------|
+| Agent                         | Strategic Function            | Business Impact (XYZ Formula) |
+|-------------------------------|-------------------------------|-------------------------------|
 | **ADR Generator**             | Systematic decision logging.  | Improves traceability (X) by reducing drafting time (Y) through pre-validated templates (Z).|
 | **Documentation Multi-Tool**  | C4 Model & Context views.     | Accelerates onboarding (X) by 40% (Y) synthesizing fragmented info into coherent diagrams (Z).|
 | **Technology Assessment**     | Multi-dimensional analysis.   | Optimizes TCO (X) ensuring business alignment (Y) via weighted scoring matrices (Z).|
