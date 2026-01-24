@@ -32,17 +32,6 @@ Think of it like having an experienced EA advisor available 24/7:
 | **Architectural Review**      | System & Microservices audit. | Lowers refactoring costs (X) identifying "God Services" (Y) before they hit production (Z).|
 | **Cloud Migration Planner**   | 6 Rs Migration Strategy.      | Minimizes migration risk (X) defining roadmaps based on criticality (Y) and impact analysis (Z).|
 
-## 📂 Repository Structure
-
-Each use case has a dedicated folder with this organization:
-
-```txt
-use-case-name/
-+-- References/         # Reference materials (templates, frameworks)
-+-- Examples/           # Concrete examples of input/output
-+-- SystemPrompt.md     # The ready-to-use prompt
-```
-
 ---
 
 ## 🏗️ Architecture Decision Agent
@@ -192,11 +181,16 @@ When using the `SystemPrompt.md` for Technology Assessment, you must explicitly 
 
 EASP is LLM-agnostic and designed to work with Gemini 2.0/1.5, Claude 3.5, or GPT-4o.
 
-### Repository Structure
+### 📂 Repository Structure
 
-- References/: Methodological standards and templates (the Agent's specialized knowledge).
-- Examples/: Real-world input/output scenarios to ensure consistency and quality.
-- SystemPrompt.md: The core behavioral logic to be injected into your LLM.
+Each use case has a dedicated folder with this organization:
+
+```txt
+use-case-name/
++-- References/         # Methodological standards and templates (the Agent's specialized knowledge).
++-- Examples/           # Real-world input/output scenarios to ensure consistency and quality.
++-- SystemPrompt.md     # The core behavioral logic to be injected into your LLM.
+```
 
 ### Integration Options
 
@@ -211,8 +205,9 @@ AI is a high-speed accelerator, not a replacement for professional judgment. To 
 - Audit the Output: Treat every AI-generated artifact as an "Advanced Draft" requiring senior sign-off.
 - Security First: Ensure no sensitive production credentials or PII are shared during the prompting process.
 
-## 🤝 Contributing
+## 📝 Licenses & Contributing
 
+Released under the MIT License. This framework is a living asset. Contributions regarding new architectural patterns (e.g., FinOps, AI Governance, Event-Driven Design) are encouraged via Pull Request.
 Have you created a useful new use case? Do you want to improve an existing prompt?
 
 1. Fork the repository
@@ -220,10 +215,6 @@ Have you created a useful new use case? Do you want to improve an existing promp
 3. Commit your changes (`git commit -m 'Add: new use case'`)
 4. Push to the branch (`git push origin feature/new-usecase`)
 5. Open a Pull Request
-
-## 📝 Licenses & Contributing
-
-Released under the MIT License. This framework is a living asset. Contributions regarding new architectural patterns (e.g., FinOps, AI Governance, Event-Driven Design) are encouraged via Pull Request.
 
 **Connect & Explore:** For deep dives into modern digital architectures and IT strategy, visit [Modern Digital Architectures.](https://francescogaravaglia.substack.com/)
 
