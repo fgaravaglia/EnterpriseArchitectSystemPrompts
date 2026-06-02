@@ -15,14 +15,17 @@ The C4 Model (Context, Containers, Components, Code) is a lean approach to docum
 ## Level 1: System Context Diagram
 
 ### Purpose
+
 Show the big picture - your system in its environment.
 
 ### Elements
+
 - **Your System**: The software system you're documenting (single box)
 - **People**: Users and personas who interact with the system
 - **External Systems**: Other software systems that interact with yours
 
 ### When to Use
+
 - Explaining system to new stakeholders
 - Defining system boundaries
 - Identifying integration points
@@ -78,20 +81,25 @@ graph TB
 ## Level 2: Container Diagram
 
 ### Purpose
+
 Show the high-level shape of software architecture and technology choices.
 
 ### Elements
+
 - **Containers**: Separately deployable/runnable units (web apps, mobile apps, databases, file systems)
 - Each container should have: Name, Technology, Responsibilities
 
 ### When to Use
+
 - Explaining overall architecture to developers
 - Showing technology stack
 - Planning deployment
 - Defining container boundaries
 
 ### What is a Container?
+
 A container is something that needs to be running for the system to work:
+
 - Web Application (React, Angular app)
 - API Application (Spring Boot, Node.js)
 - Database (PostgreSQL, MongoDB)
@@ -142,20 +150,25 @@ graph TB
 ## Level 3: Component Diagram
 
 ### Purpose
+
 Decompose containers into components showing internal structure.
 
 ### Elements
+
 - **Components**: Groupings of related functionality encapsulated behind interfaces
 - Each component should have: Name, Technology/Type, Responsibilities
 
 ### When to Use
+
 - Explaining internal structure to developers
 - Planning component boundaries
 - Identifying reusable modules
 - Detailed design phase
 
 ### What is a Component?
+
 A component is a grouping of related functionality:
+
 - Controllers/Handlers
 - Services/Business Logic
 - Repositories/Data Access
@@ -213,15 +226,19 @@ graph TB
 ## Level 4: Code Diagram (Optional)
 
 ### Purpose
+
 Show implementation details - usually auto-generated from code.
 
 ### When to Use
+
 Rarely in documentation - better to generate from code with tools like:
+
 - PlantUML from code
 - IDE UML generators
 - Javadoc/JSDoc diagrams
 
 ### Recommendation
+
 Skip this level in manual documentation. If needed, generate from code.
 
 ---
@@ -289,6 +306,7 @@ Skip this level in manual documentation. If needed, generate from code.
 ### Microservices Architecture
 
 For microservices:
+
 - **Context**: Show all microservices as one "System"
 - **Container**: Each microservice is a separate container
 - **Component**: Drill into one microservice at a time
@@ -296,6 +314,7 @@ For microservices:
 ### Monolithic Application
 
 For monoliths:
+
 - **Context**: Show monolith as single system
 - **Container**: Database, Web server, potentially separate frontend
 - **Component**: Internal modules/packages of the monolith

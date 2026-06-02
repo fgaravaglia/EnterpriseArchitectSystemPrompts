@@ -7,12 +7,14 @@ A comprehensive guide to creating effective architecture diagrams using Mermaid,
 ## Core Principles
 
 ### 1. Purpose Over Perfection
+
 **Every diagram should answer a specific question.**
 
 ❌ **Bad**: "Here's our architecture" (shows everything)  
 ✅ **Good**: "How does user authentication flow through the system?" (shows auth path only)
 
 ### 2. Audience Awareness
+
 **Different stakeholders need different diagrams.**
 
 - **Executives**: High-level context, business value (Context diagrams)
@@ -21,6 +23,7 @@ A comprehensive guide to creating effective architecture diagrams using Mermaid,
 - **Security**: Network boundaries, data flows, auth (Security architecture)
 
 ### 3. Consistency
+
 **Use the same notation across all diagrams.**
 
 - Same shapes for same concepts
@@ -29,6 +32,7 @@ A comprehensive guide to creating effective architecture diagrams using Mermaid,
 - Same level of detail within a diagram set
 
 ### 4. Progressive Disclosure
+
 **Start simple, add detail progressively.**
 
 ```
@@ -42,6 +46,7 @@ Level 4: Code (class details) - optional
 ```
 
 ### 5. Less is More
+
 **Minimize cognitive load.**
 
 - **5-9 elements** per diagram (cognitive limit)
@@ -67,6 +72,7 @@ Level 4: Code (class details) - optional
 **When to use**: System architecture, component relationships, data flow
 
 **Basic Syntax**:
+
 ```mermaid
 graph TB
     A[User] --> B[Web App]
@@ -75,6 +81,7 @@ graph TB
 ```
 
 **Best Practices**:
+
 ```mermaid
 graph TB
     %% Use meaningful IDs and clear labels
@@ -112,12 +119,14 @@ graph TB
 ```
 
 **Direction Options**:
+
 - `graph TB` - Top to Bottom (default, hierarchical)
 - `graph LR` - Left to Right (process flow)
 - `graph BT` - Bottom to Top (layers, dependencies)
 - `graph RL` - Right to Left (rare)
 
 **When to use each**:
+
 - **TB**: Layered architecture (UI → Logic → Data)
 - **LR**: Sequential processes (order flow, CI/CD pipeline)
 - **BT**: Dependency trees (what depends on what)
@@ -129,6 +138,7 @@ graph TB
 **When to use**: API calls, user workflows, distributed transactions
 
 **Basic Syntax**:
+
 ```mermaid
 sequenceDiagram
     participant User
@@ -145,6 +155,7 @@ sequenceDiagram
 ```
 
 **Best Practices**:
+
 ```mermaid
 sequenceDiagram
     %% Use clear participant names
@@ -180,6 +191,7 @@ sequenceDiagram
 ```
 
 **Advanced Features**:
+
 - `activate/deactivate`: Show component lifecycle
 - `alt/else/end`: Conditional flows
 - `loop`: Repeated operations
@@ -193,6 +205,7 @@ sequenceDiagram
 **When to use**: Domain entities, data models, object relationships
 
 **Basic Syntax**:
+
 ```mermaid
 classDiagram
     class Order {
@@ -219,6 +232,7 @@ classDiagram
 ```
 
 **Best Practices**:
+
 ```mermaid
 classDiagram
     %% Use clear naming and types
@@ -277,6 +291,7 @@ classDiagram
 ```
 
 **Relationship Types**:
+
 - `--|>` : Inheritance
 - `--*` : Composition (strong ownership)
 - `--o` : Aggregation (weak ownership)
@@ -290,6 +305,7 @@ classDiagram
 **When to use**: Order status, workflow states, process lifecycle
 
 **Best Practices**:
+
 ```mermaid
 stateDiagram-v2
     [*] --> Pending: Order created
@@ -330,6 +346,7 @@ stateDiagram-v2
 **When to use**: Database design, data model documentation
 
 **Best Practices**:
+
 ```mermaid
 erDiagram
     CUSTOMER ||--o{ ORDER : places
@@ -378,6 +395,7 @@ erDiagram
 ```
 
 **Relationship Cardinality**:
+
 - `||--||` : One to one
 - `||--o{` : One to zero or many
 - `||--|{` : One to one or many
@@ -417,6 +435,7 @@ gitGraph
 ### 1. Styling and Theming
 
 **Custom Colors**:
+
 ```mermaid
 graph TB
     A[User Facing]
@@ -435,6 +454,7 @@ graph TB
 ```
 
 **Define Reusable Styles**:
+
 ```mermaid
 %%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#ff9800','primaryTextColor':'#fff','primaryBorderColor':'#e65100','lineColor':'#333','secondaryColor':'#2196f3','tertiaryColor':'#4caf50'}}}%%
 graph TB
@@ -662,6 +682,7 @@ graph TB
 ### Anti-Pattern 1: Too Much Detail
 
 ❌ **Bad**: Everything in one diagram
+
 ```mermaid
 graph TB
     User[User] --> WebServer
@@ -683,6 +704,7 @@ graph TB
 ```
 
 ✅ **Good**: Multiple focused diagrams
+
 - Diagram 1: User → Web → App → Data (high level)
 - Diagram 2: App Server internals
 - Diagram 3: Worker processing flow
@@ -690,6 +712,7 @@ graph TB
 ### Anti-Pattern 2: Inconsistent Notation
 
 ❌ **Bad**: Different shapes for same concepts across diagrams
+
 - Diagram 1: Database as cylinder
 - Diagram 2: Database as rectangle
 - Diagram 3: Database as database icon
@@ -699,6 +722,7 @@ graph TB
 ### Anti-Pattern 3: No Labels on Relationships
 
 ❌ **Bad**:
+
 ```mermaid
 graph LR
     A --> B
@@ -706,6 +730,7 @@ graph LR
 ```
 
 ✅ **Good**:
+
 ```mermaid
 graph LR
     A -->|HTTP POST /api/v1/orders| B
@@ -717,6 +742,7 @@ graph LR
 ❌ **Bad**: Random colors just for aesthetics
 
 ✅ **Good**: Colors represent categories
+
 - Blue = Frontend
 - Orange = Backend
 - Purple = Data
@@ -750,12 +776,14 @@ graph TB
 ### When to Use PlantUML
 
 **Advantages over Mermaid**:
+
 - More diagram types (timing, Gantt, mind maps)
 - More customization options
 - Better for complex class diagrams
 - Better for large sequence diagrams
 
 **Disadvantages**:
+
 - Requires Java runtime
 - Not natively supported in browsers
 - Steeper learning curve
@@ -763,6 +791,7 @@ graph TB
 ### PlantUML Syntax Examples
 
 #### Sequence Diagram
+
 ```plantuml
 @startuml
 participant User
@@ -788,6 +817,7 @@ end note
 ```
 
 #### Component Diagram
+
 ```plantuml
 @startuml
 package "Frontend" {
@@ -827,6 +857,7 @@ database "PostgreSQL" {
 Before finalizing a diagram, check:
 
 ### Content
+
 - [ ] Diagram has a clear title
 - [ ] Purpose/question is obvious
 - [ ] Audience is appropriate
@@ -837,6 +868,7 @@ Before finalizing a diagram, check:
 - [ ] No unnecessary elements
 
 ### Visual
+
 - [ ] Layout is logical (top-to-bottom or left-to-right flow)
 - [ ] Related items are grouped (subgraphs/boundaries)
 - [ ] Colors are consistent and meaningful
@@ -846,6 +878,7 @@ Before finalizing a diagram, check:
 - [ ] Arrows don't cross unnecessarily
 
 ### Technical
+
 - [ ] Diagram renders correctly
 - [ ] Source is version controlled
 - [ ] Syntax is valid (no errors)
@@ -860,16 +893,19 @@ Before finalizing a diagram, check:
 ### Diagram Tools
 
 **Mermaid**:
+
 - [Mermaid Live Editor](https://mermaid.live/) - Online editor
 - [Mermaid CLI](https://github.com/mermaid-js/mermaid-cli) - Generate images
 - [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) - Preview in editor
 
 **PlantUML**:
+
 - [PlantUML Online](http://www.plantuml.com/plantuml/) - Online editor
 - [PlantUML CLI](https://plantuml.com/command-line) - Generate images
 - [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) - Preview in editor
 
 **General Purpose**:
+
 - [Draw.io](https://www.diagrams.net/) - Free, browser-based
 - [Lucidchart](https://www.lucidchart.com/) - Commercial, collaborative
 - [Excalidraw](https://excalidraw.com/) - Hand-drawn style
@@ -878,6 +914,7 @@ Before finalizing a diagram, check:
 ### Documentation Integration
 
 **Markdown + Mermaid**:
+
 - GitHub (native support)
 - GitLab (native support)
 - Notion (native support)
@@ -886,6 +923,7 @@ Before finalizing a diagram, check:
 - Docusaurus (via plugin)
 
 **Export Options**:
+
 ```bash
 # Mermaid CLI - Generate PNG
 mmdc -i diagram.mmd -o diagram.png
@@ -911,6 +949,7 @@ plantuml -tsvg diagram.puml
 | **Diagram Types** | ⚠️ 10+ types | ✅ 20+ types |
 
 **Recommendation**:
+
 - **Use Mermaid** for: Documentation in GitHub/GitLab, simple diagrams, fast iteration
 - **Use PlantUML** for: Complex class diagrams, detailed sequence diagrams, print-quality output
 
@@ -1220,6 +1259,7 @@ graph TB
 ## Accessibility in Diagrams
 
 ### 1. Alt Text
+
 Always provide text description:
 
 ```markdown
@@ -1231,6 +1271,7 @@ with Stripe for payments and SendGrid for email notifications.
 ```
 
 ### 2. High Contrast
+
 Ensure colors have sufficient contrast:
 
 ```mermaid
@@ -1244,6 +1285,7 @@ graph TB
 ```
 
 ### 3. Text Alternatives
+
 Supplement visual diagrams with text:
 
 ```markdown
@@ -1273,6 +1315,7 @@ Supplement visual diagrams with text:
 ✅ **Do**: Split into multiple focused diagrams
 
 **Optimization Tips**:
+
 - Limit subgraph nesting (max 3 levels)
 - Reduce arrow crossings (better layout)
 - Use simpler shapes (rectangles faster than rounded)
@@ -1280,6 +1323,7 @@ Supplement visual diagrams with text:
 ### Image Export
 
 **For large documentation**:
+
 - Export diagrams to PNG/SVG
 - Include both source (.mmd) and rendered image
 - CI/CD can auto-generate on commit
@@ -1448,6 +1492,7 @@ gantt
 ### Essential Practices
 
 ✅ **Do**:
+
 - Start with context, drill down progressively
 - Label all relationships (not just arrows)
 - Use subgraphs to group related items
@@ -1457,6 +1502,7 @@ gantt
 - Export to images for performance
 
 ❌ **Don't**:
+
 - Put everything in one diagram
 - Use colors randomly
 - Skip labels on arrows
@@ -1465,7 +1511,7 @@ gantt
 - Forget the target audience
 - Use obscure notation without explanation
 
-### When Creating a Diagram, Ask:
+### When Creating a Diagram, Ask
 
 1. **What question does this answer?**
 2. **Who will read this?**
@@ -1480,6 +1526,7 @@ gantt
 Before publishing a diagram:
 
 **Content**:
+
 - [ ] Clear title describing what it shows
 - [ ] All elements labeled
 - [ ] All relationships labeled
@@ -1487,6 +1534,7 @@ Before publishing a diagram:
 - [ ] Appropriate level of detail for audience
 
 **Visual**:
+
 - [ ] Logical layout (flow is clear)
 - [ ] Related items grouped
 - [ ] Adequate white space
@@ -1494,12 +1542,14 @@ Before publishing a diagram:
 - [ ] 5-9 main elements (not overwhelming)
 
 **Technical**:
+
 - [ ] Renders correctly in target environment
 - [ ] Source file in version control
 - [ ] Syntax validated
 - [ ] Alternative text provided (accessibility)
 
 **Process**:
+
 - [ ] Reviewed by at least one other person
 - [ ] Linked from relevant documentation
 - [ ] Date/version included
@@ -1510,6 +1560,7 @@ Before publishing a diagram:
 ## Resources
 
 ### Learning Resources
+
 - [Mermaid Documentation](https://mermaid.js.org/)
 - [PlantUML Documentation](https://plantuml.com/)
 - [C4 Model](https://c4model.com/)
@@ -1517,6 +1568,7 @@ Before publishing a diagram:
 - [The Visual Display of Quantitative Information (Edward Tufte)](https://www.edwardtufte.com/tufte/books_vdqi)
 
 ### Tools
+
 - [Mermaid Live Editor](https://mermaid.live/)
 - [PlantUML Online Server](http://www.plantuml.com/plantuml/)
 - [Structurizr](https://structurizr.com/) - C4 Model tool
@@ -1524,11 +1576,13 @@ Before publishing a diagram:
 - [Diagrams.net (Draw.io)](https://www.diagrams.net/)
 
 ### VS Code Extensions
+
 - Markdown Preview Mermaid Support
 - PlantUML
 - Draw.io Integration
 
 ### Style Guides
+
 - [Google's Technical Writing Style Guide](https://developers.google.com/style/images)
 - [Microsoft's Diagram Standards](https://docs.microsoft.com/en-us/style-guide/procedures-instructions/text-formatting)
 

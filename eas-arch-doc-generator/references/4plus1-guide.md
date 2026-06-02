@@ -234,9 +234,11 @@ The 4+1 Architectural Views model, created by Philippe Kruchten, describes softw
 ## View 1: Logical View (Functional Structure)
 
 ### Purpose
+
 Describe the **functional requirements** the system provides to end users - the "what" the system does.
 
 ### Key Elements
+
 - **Classes and Objects**: Core domain entities
 - **Packages/Namespaces**: Logical grouping of functionality
 - **Interfaces**: Contracts between components
@@ -244,6 +246,7 @@ Describe the **functional requirements** the system provides to end users - the 
 - **Design Patterns**: Applied structural patterns
 
 ### Notation
+
 - UML Class Diagrams
 - UML Package Diagrams
 - Component Diagrams (logical components)
@@ -315,6 +318,7 @@ The system is organized around the following key abstractions:
 ### Logical Packages
 
 ```
+
 com.company.ecommerce
 ├── domain
 │   ├── order (Order, OrderItem, OrderStatus)
@@ -329,6 +333,7 @@ com.company.ecommerce
 │   └── external (Payment Gateway, Email Service)
 └── api
     └── controllers (REST endpoints)
+
 ```
 
 ### Design Patterns
@@ -345,9 +350,11 @@ com.company.ecommerce
 ## View 2: Process View (Dynamic Behavior)
 
 ### Purpose
+
 Describe **runtime behavior**, including concurrency, distribution, system integrity, and fault tolerance - the "how" at runtime.
 
 ### Key Elements
+
 - **Processes**: Independent execution units
 - **Threads**: Concurrent execution within processes
 - **Communication**: IPC, messaging, RPC
@@ -355,6 +362,7 @@ Describe **runtime behavior**, including concurrency, distribution, system integ
 - **State Machines**: Lifecycle and state transitions
 
 ### Notation
+
 - UML Sequence Diagrams
 - UML Activity Diagrams
 - State Machine Diagrams
@@ -480,9 +488,11 @@ The system consists of the following main processes:
 ## View 3: Development View (Software Organization)
 
 ### Purpose
+
 Describe the **static organization** of software modules from a developer's perspective - the code structure.
 
 ### Key Elements
+
 - **Modules/Packages**: Code organization
 - **Layers**: Logical separation (presentation, business, data)
 - **Dependencies**: Between modules
@@ -490,6 +500,7 @@ Describe the **static organization** of software modules from a developer's pers
 - **Source Control**: Repository structure
 
 ### Notation
+
 - UML Package Diagrams
 - UML Component Diagrams
 - Dependency Graphs
@@ -582,12 +593,14 @@ The codebase follows a **layered architecture** with clear dependency rules:
 
 **Gradle Multi-Module Project**
 ```
+
 order-service/
 ├── order-api (Spring Boot application)
 ├── order-domain (Pure Java library)
 ├── order-application (Application services)
 ├── order-infrastructure (JPA repositories, Kafka)
 └── build.gradle
+
 ```
 
 **Build Order**:
@@ -599,6 +612,7 @@ order-service/
 ### Package Naming Convention
 
 ```
+
 com.company.ecommerce
 ├── [service-name]
 │   ├── domain
@@ -615,6 +629,7 @@ com.company.ecommerce
 │   │   └── rest (HTTP clients)
 │   └── api
 │       └── rest (REST controllers)
+
 ```
 
 ### Code Organization Principles
@@ -630,9 +645,11 @@ com.company.ecommerce
 ## View 4: Physical View (Deployment)
 
 ### Purpose
+
 Describe the **mapping of software to hardware** - where things run and how they communicate.
 
 ### Key Elements
+
 - **Nodes**: Physical or virtual machines
 - **Artifacts**: Deployable units (JARs, containers, executables)
 - **Communication Paths**: Network connections, protocols
@@ -640,6 +657,7 @@ Describe the **mapping of software to hardware** - where things run and how they
 - **Infrastructure**: Load balancers, firewalls, storage
 
 ### Notation
+
 - UML Deployment Diagrams
 - Network Topology Diagrams
 - Infrastructure Diagrams
@@ -797,9 +815,11 @@ graph TB
 ## View 5: Scenarios (+1 View)
 
 ### Purpose
+
 **Validate and illustrate** the architecture by showing how the four views work together to support key use cases.
 
 ### Key Elements
+
 - **Use Cases**: User interactions with the system
 - **Quality Attribute Scenarios**: Performance, security, availability scenarios
 - **Cross-View Mapping**: How each scenario touches multiple views
@@ -1028,6 +1048,7 @@ Scenarios validate that the architecture supports key use cases and quality requ
 | Scenarios | Use Cases (driving the model) |
 
 **When to use each**:
+
 - **C4**: Modern, agile, lightweight documentation
 - **4+1**: Comprehensive, formal, enterprise systems
 

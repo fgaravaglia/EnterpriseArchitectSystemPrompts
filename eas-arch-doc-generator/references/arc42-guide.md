@@ -4,13 +4,14 @@ Arc42 is a comprehensive template for software architecture documentation and co
 
 **Created by**: Dr. Gernot Starke and Dr. Peter Hruschka  
 **License**: Creative Commons (CC BY-SA 4.0)  
-**Official Site**: https://arc42.org
+**Official Site**: <https://arc42.org>
 
 ---
 
 ## When to Use Arc42
 
-### Ideal For:
+### Ideal For
+
 - **Complete system documentation** requiring comprehensive coverage
 - **Long-lived systems** that need thorough reference documentation
 - **Complex enterprise applications** with multiple stakeholders
@@ -18,7 +19,8 @@ Arc42 is a comprehensive template for software architecture documentation and co
 - **Team onboarding** where new members need complete system understanding
 - **Systems with significant technical debt** requiring full assessment
 
-### Not Ideal For:
+### Not Ideal For
+
 - Quick POCs or prototypes (too heavyweight)
 - Agile teams preferring lightweight documentation (consider C4)
 - Systems with rapidly changing requirements (maintenance overhead)
@@ -161,6 +163,7 @@ graph TB
 ### Business Context Description
 
 **[Your System]**
+
 - Purpose: [What problem it solves]
 - Scope: [What's included, what's excluded]
 - Key capabilities: [Main features]
@@ -227,9 +230,6 @@ graph TB
 [Brief description of how system is broken down]
 
 **Main Components**:
-- [Component 1]: [Responsibility]
-- [Component 2]: [Responsibility]
-- [Component 3]: [Responsibility]
 
 ## 4.3 Quality Goals Achievement
 
@@ -252,6 +252,7 @@ graph TB
 ## 5.1 Whitebox: Overall System
 
 ### Overview
+
 [Description of the system's main building blocks]
 
 ### Building Block Diagram
@@ -278,8 +279,9 @@ graph TB
 ### Building Block Descriptions
 
 #### Frontend
+
 - **Purpose**: User interface for web and mobile
-- **Responsibilities**: 
+- **Responsibilities**:
   - Render UI
   - Handle user interactions
   - Client-side validation
@@ -287,18 +289,20 @@ graph TB
 - **Quality Attributes**: Responsive, accessible, fast load times
 
 #### API Gateway
+
 - **Purpose**: Single entry point for all client requests
 - **Responsibilities**:
   - Request routing
   - Authentication and authorization
   - Rate limiting
   - Request/response transformation
-- **Interfaces**: 
+- **Interfaces**:
   - Input: HTTPS from clients
   - Output: Internal service calls
 - **Quality Attributes**: High availability, low latency
 
 #### Service A
+
 - **Purpose**: [Core business logic]
 - **Responsibilities**: [List key responsibilities]
 - **Interfaces**: [APIs exposed, dependencies]
@@ -326,16 +330,19 @@ graph TB
 ### Component Descriptions
 
 #### REST Controller
+
 - **Purpose**: Handle HTTP requests
 - **Responsibilities**: Request validation, DTO conversion, error handling
 - **Interfaces**: REST endpoints documented in OpenAPI spec
 
 #### Business Service
+
 - **Purpose**: Business logic execution
 - **Responsibilities**: Domain rules, orchestration, transaction management
 - **Interfaces**: Service interfaces (internal)
 
 #### Repository
+
 - **Purpose**: Data access abstraction
 - **Responsibilities**: CRUD operations, query optimization, caching
 - **Interfaces**: Repository interfaces following Repository pattern
@@ -347,6 +354,7 @@ graph TB
 ## 6.1 Scenario 1: [Primary Use Case - e.g., User Login]
 
 ### Overview
+
 [Brief description of what happens]
 
 ### Sequence Diagram
@@ -379,6 +387,7 @@ sequenceDiagram
 6. **Session established**: Frontend stores token, redirects user
 
 ### Quality Characteristics
+
 - **Performance**: Complete flow in <500ms (p95)
 - **Security**: Password hashed with bcrypt, JWT signed with RS256
 - **Resilience**: Retry on network failure, cache user data in Redis
@@ -433,11 +442,13 @@ graph TB
 ### Compute Resources
 
 **ECS Cluster**
+
 - Instance Type: t3.large (2 vCPU, 8GB RAM)
 - Auto-scaling: 3-10 instances
 - Health checks: Every 30 seconds
 
 **Container Configuration**
+
 - Image: Docker containers from ECR
 - CPU: 1 vCPU per container
 - Memory: 2GB per container
@@ -446,6 +457,7 @@ graph TB
 ### Data Storage
 
 **RDS PostgreSQL**
+
 - Version: PostgreSQL 15
 - Instance: db.r6g.large (2 vCPU, 16GB RAM)
 - Storage: 100GB gp3 with auto-scaling
@@ -454,6 +466,7 @@ graph TB
 - Encryption: At rest (AWS KMS), in transit (TLS)
 
 **ElastiCache Redis**
+
 - Version: Redis 7
 - Node Type: cache.t3.medium
 - Cluster: 3 nodes with replication
@@ -463,11 +476,13 @@ graph TB
 ### Networking
 
 **VPC Configuration**
+
 - CIDR: 10.0.0.0/16
 - Availability Zones: 3 (us-east-1a, 1b, 1c)
 - Subnets: Public, Private, Data per AZ
 
 **Security Groups**
+
 - ALB SG: Inbound 443 from 0.0.0.0/0
 - App SG: Inbound from ALB SG only
 - RDS SG: Inbound 5432 from App SG only
@@ -476,12 +491,14 @@ graph TB
 ## 7.3 Deployment Strategy
 
 **Blue-Green Deployment**
+
 - New version deployed to "green" environment
 - Health checks validate green environment
 - Traffic switched from blue to green
 - Blue kept running for rollback (15 minutes)
 
 **Rollback Procedure**
+
 1. Detect issue (automated monitoring or manual)
 2. Switch traffic back to blue environment
 3. Investigate issue in green
@@ -523,16 +540,19 @@ classDiagram
 ## 8.2 Security Concepts
 
 **Authentication**
+
 - Mechanism: OAuth 2.0 + JWT
 - Token lifetime: 1 hour (access), 7 days (refresh)
 - Storage: HttpOnly cookies for web, secure storage for mobile
 
 **Authorization**
+
 - Mechanism: Role-Based Access Control (RBAC)
 - Roles: Admin, User, Guest
 - Enforcement: API Gateway + service level
 
 **Data Protection**
+
 - Encryption at rest: AES-256 (AWS KMS)
 - Encryption in transit: TLS 1.3
 - PII handling: Tokenization for sensitive data
@@ -541,11 +561,13 @@ classDiagram
 ## 8.3 Error Handling
 
 **Error Categories**
+
 - Validation errors (4xx): Return to client with details
 - Business logic errors (4xx): Domain-specific error messages
 - Technical errors (5xx): Log, alert, return generic message
 
 **Error Response Format**
+
 ```json
 {
   "error": {
@@ -563,18 +585,21 @@ classDiagram
 ## 8.4 Logging and Monitoring
 
 **Logging Strategy**
+
 - Format: Structured JSON logs
 - Levels: ERROR, WARN, INFO, DEBUG
 - Correlation ID: Traced across all services
 - Storage: CloudWatch Logs with 30-day retention
 
 **Monitoring Stack**
+
 - APM: Datadog
 - Metrics: CloudWatch + Prometheus
 - Alerting: PagerDuty for critical issues
 - Dashboards: Grafana for operations team
 
 **Key Metrics**
+
 - Request rate, error rate, latency (p50, p95, p99)
 - Service health, resource utilization
 - Business metrics (orders/hour, revenue)
@@ -582,6 +607,7 @@ classDiagram
 ## 8.5 Transaction Management
 
 **Distributed Transactions**
+
 - Pattern: Saga (orchestration)
 - Compensation: Each step has compensating action
 - Timeout: 30 seconds for complete saga
@@ -590,12 +616,14 @@ classDiagram
 ## 8.6 Caching Strategy
 
 **Cache Levels**
+
 - Browser cache: Static assets (TTL: 1 year)
 - CDN cache: API responses (TTL: 5 minutes)
 - Application cache: Redis (TTL: varies by data type)
 - Database cache: Query result cache
 
 **Cache Invalidation**
+
 - Time-based: TTL expiration
 - Event-based: Invalidate on data change events
 - Manual: Admin interface for cache clearing
@@ -612,7 +640,8 @@ classDiagram
 **Date**: 2024-01-15  
 **Context**: Need for independent scaling and deployment  
 **Decision**: Adopt microservices architecture  
-**Consequences**: 
+**Consequences**:
+
 - ✅ Independent scaling per service
 - ✅ Team autonomy
 - ❌ Increased operational complexity
@@ -627,6 +656,7 @@ classDiagram
 **Context**: Need for ACID transactions and relational data  
 **Decision**: Use PostgreSQL for all structured data  
 **Consequences**:
+
 - ✅ Strong consistency guarantees
 - ✅ Rich querying capabilities
 - ❌ Vertical scaling limitations
@@ -693,6 +723,7 @@ Quality
 **Measure**: p95 response time < 200ms
 
 **Architecture Support**:
+
 - Caching layer reduces database load
 - Horizontal scaling handles increased traffic
 - Async processing for non-critical operations
@@ -705,6 +736,7 @@ Quality
 **Measure**: Zero unauthorized access, detection within 1 second
 
 **Architecture Support**:
+
 - JWT validation at API Gateway
 - Role-based access control
 - Audit logging of all access attempts
@@ -717,6 +749,7 @@ Quality
 **Measure**: < 30 seconds downtime
 
 **Architecture Support**:
+
 - Multi-AZ RDS deployment
 - Automatic failover configuration
 - Application retry logic
@@ -742,7 +775,8 @@ Quality
 **Description**: Payment gateway API is single point of failure  
 **Probability**: Medium  
 **Impact**: High (orders cannot complete)  
-**Mitigation**: 
+**Mitigation**:
+
 - Circuit breaker pattern implemented
 - Fallback to manual payment processing
 - Multiple payment provider integration (planned Q2)
@@ -755,6 +789,7 @@ Quality
 **Probability**: High (within 12 months)  
 **Impact**: Medium (performance degradation)  
 **Mitigation**:
+
 - Read replicas deployed
 - Caching aggressively implemented
 - Sharding strategy under evaluation
@@ -767,6 +802,7 @@ Quality
 **Probability**: Medium  
 **Impact**: High (critical knowledge loss risk)  
 **Mitigation**:
+
 - Documentation being created
 - Knowledge sharing sessions scheduled
 - Cross-training program initiated
@@ -858,6 +894,7 @@ Quality
 ---
 
 **Document Maintenance**: This document is reviewed quarterly and updated as architecture evolves. All stakeholders are notified of significant changes.
+
 ```
 
 ---
