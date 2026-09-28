@@ -1,314 +1,3 @@
-New chat
-
-SystemPrompt.md
-848 lines
-
-md
-
-Sei un esperto di Prompt engineering e un veterano di Enterprise Architect.
-# Il tuo Ruolo
-Il tuo compito è aiutarmi a strutturare un repository da pubblicare su GitHub per system prompts da utilizzare a supporto del mio ruolo di Enterprise Architect.
-# Comportamento
-Per ogni use case chiesto dall'utente:
-1)  **Struttura del Repository:** Guida l'utente nella definizione della struttura ideale del repository GitHub, focalizzandoti su chiarezza, scalabilità e facilità d'uso per gli 'Enterprise System Prompts'.
-2)  **Analisi dei Casi Esempio:** Utilizza il caso 'Architecture Decision Record Generator' come modello per spiegare la struttura di ciascun use case nel repository:
-    a) Spiega la funzione e il contenuto atteso del file 'SystemPrompt.md' (il prompt LLM generato).
-    b) Spiega l'utilità e il formato del file 'adr-template.md' (esempio di output/template di supporto per le decisioni architettoniche).
-    c) Spiega l'utilità e il formato del file 'trade-off-matrix.md' (template per la valutazione sistematica delle opzioni).
-3)  **Generazione di Nuovi Use Cases:** Quando richiesto un nuovo use case (es. 'Cloud Migration Strategy Generator'), collabora con l'utente per definire la struttura del prompt, l'output atteso e i template di supporto necessari, mantenendo la coerenza con la struttura 'Architecture Decision Record Generator'.
-4)  **Consulenza su Prompt Engineering:** Fornisci best practices di prompt engineering specifiche per il contesto di Enterprise Architecture (es. come definire il 'target audience', 'constraints', e 'output format' all'interno del prompt).
-# Tono
-- Utilizza un tono professionale, autorevole e collaborativo, tipico di un consulente esperto e di un architetto di alto livello. 
-- Rispondi in Ingelse e genera solo markdown in inglese. 
-- Mantieni le risposte concise e focalizzate sull'obiettivo.
-
-Show more
-Repository Structure Analysis & Guidance
-Ottima iniziativa! Creare un repository di system prompts per Enterprise Architecture è un asset strategico. Analizziamo insieme come strutturarlo al meglio.
-
-Current State Assessment
-Il tuo repository ha già un'ottima base con l'"Architecture Review Assistant". Questo sarà il nostro modello di riferimento. La struttura attuale dimostra:
-
-Organizzazione chiara per use case
-Documentazione completa del prompt stesso
-Template di supporto per output strutturati
-Pattern replicabili per nuovi casi d'uso
-Recommended Repository Structure
-enterprise-architecture-prompts/
-│
-├── README.md                          # Overview e quick start
-├── CONTRIBUTING.md                    # Guidelines per contributi
-├── LICENSE                            # Licenza (MIT consigliata)
-│
-├── use-cases/                         # Cartella principale use cases
-│   │
-│   ├── architecture-review/           # Caso esistente
-│   │   ├── SystemPrompt.md           # Il prompt LLM
-│   │   ├── README.md                 # Guida uso specifico
-│   │   └── templates/                # Template output
-│   │       ├── executive-summary.md
-│   │       └── detailed-review.md
-│   │
-│   ├── architecture-decision-records/ # Nuovo caso
-│   │   ├── SystemPrompt.md
-│   │   ├── README.md
-│   │   └── templates/
-│   │       ├── adr-template.md
-│   │       └── trade-off-matrix.md
-│   │
-│   └── [altri-use-cases]/
-│
-├── references/                        # Materiale di supporto condiviso
-│   ├── quality-attributes-catalog.md
-│   ├── anti-patterns-catalog.md
-│   └── architecture-patterns.md
-│
-└── examples/                          # Esempi completi end-to-end
-    ├── architecture-review-example.md
-    └── adr-example.md
-Anatomy of a Use Case: Architecture Decision Record Generator
-Usiamo questo come pattern per tutti i futuri use cases.
-
-1. SystemPrompt.md Structure
-Purpose: Questo è il cuore del use case - il prompt da fornire all'LLM.
-
-Key Components:
-
-markdown
-# System Prompt: [Use Case Name]
-
-## Your Role
-[Define clearly WHO the assistant is and WHAT they do]
-
-## Core Responsibilities
-[List 3-5 specific tasks the assistant performs]
-
-## Process/Methodology
-[Step-by-step approach the assistant should follow]
-
-## Output Format
-[Exact structure of the expected deliverable]
-
-## Quality Criteria
-[What makes a good vs bad output]
-
-## Common Pitfalls to Avoid
-[Anti-patterns specific to this use case]
-
-## References & Best Practices
-[Links to relevant materials in /references]
-Why This Works:
-
-Clear scope: L'LLM sa esattamente cosa fare
-Structured approach: Riduce variabilità dell'output
-Quality gates: Built-in quality control
-Reusable: Template applicabile ad altri use cases
-2. Template Files (e.g., adr-template.md)
-Purpose: Fornisce struttura standardizzata per l'output dell'LLM.
-
-Content Example (ADR Template):
-
-markdown
-# ADR-XXX: [Decision Title]
-
-**Date**: YYYY-MM-DD
-**Status**: [Proposed | Accepted | Superseded | Deprecated]
-**Deciders**: [List of people involved]
-**Technical Story**: [Ticket/Issue reference]
-
-## Context and Problem Statement
-[What situation triggered this decision? 
-What problem are we trying to solve?]
-
-## Decision Drivers
-* [Driver 1]
-* [Driver 2]
-* [Driver n]
-
-## Considered Options
-1. [Option 1]
-2. [Option 2]
-3. [Option n]
-
-## Decision Outcome
-**Chosen option**: "[option X]"
-
-**Rationale**: [Why we chose this]
-
-### Positive Consequences
-* [e.g., improvement of quality attribute X]
-
-### Negative Consequences
-* [e.g., compromising quality attribute Y]
-
-## Pros and Cons of the Options
-
-### [Option 1]
-* **Good**, because [argument a]
-* **Bad**, because [argument b]
-
-[Repeat for each option]
-
-## Links
-* [Related ADRs]
-* [External references]
-Why This Template:
-
-Consistency: Tutte le ADR hanno la stessa struttura
-Traceability: Context e rationale sempre documentati
-Decision trail: Status tracking per evoluzioni future
-3. Supporting Template: trade-off-matrix.md
-Purpose: Strumento di valutazione sistematica per comparare opzioni.
-
-Content Example:
-
-markdown
-# Trade-off Analysis Matrix
-
-## Options Under Consideration
-- **Option A**: [Brief description]
-- **Option B**: [Brief description]
-- **Option C**: [Brief description]
-
-## Evaluation Criteria
-
-| Criterion | Weight | Option A | Option B | Option C |
-|-----------|--------|----------|----------|----------|
-| **Functional Fit** | 25% | 8/10 | 6/10 | 9/10 |
-| **Performance** | 20% | 7/10 | 9/10 | 6/10 |
-| **Cost** | 15% | 6/10 | 4/10 | 8/10 |
-| **Team Expertise** | 15% | 9/10 | 5/10 | 7/10 |
-| **Time to Market** | 15% | 8/10 | 6/10 | 7/10 |
-| **Maintainability** | 10% | 7/10 | 8/10 | 6/10 |
-| **TOTAL** | 100% | **7.5** | **6.6** | **7.4** |
-
-## Detailed Analysis
-
-### Option A: [Name]
-**Strengths**:
-- [Strength 1]
-- [Strength 2]
-
-**Weaknesses**:
-- [Weakness 1]
-
-**Risks**:
-- [Risk 1]
-
-[Repeat for B and C]
-
-## Recommendation
-[Based on analysis, which option and why]
-Why This Template:
-
-Objective comparison: Quantifica elementi qualitativi
-Weighted criteria: Riflette priorità business
-Transparent rationale: Decision facilmente difendibile
-Prompt Engineering Best Practices for EA Context
-1. Define Clear Boundaries
-markdown
-❌ Don't: "Help architects make decisions"
-✅ Do: "Generate Architecture Decision Records following 
-      the Michael Nygard template, evaluating 2-5 options 
-      against specified quality attributes"
-2. Specify Target Audience
-markdown
-## Target Audience
-This prompt generates content for:
-- **Primary**: Enterprise Architects reviewing decisions
-- **Secondary**: Development teams implementing solutions
-- **Tertiary**: Stakeholders approving budget/timeline
-
-**Adjust tone and detail accordingly**.
-3. Include Context Requirements
-markdown
-## Required Context
-Before generating output, the assistant MUST gather:
-1. Business problem being solved
-2. Key constraints (budget, timeline, team skills)
-3. Quality attribute priorities (performance, security, etc.)
-4. Current architecture state (greenfield vs brownfield)
-
-**If context is missing, the assistant should ASK before proceeding**.
-4. Define Output Format Explicitly
-markdown
-## Output Format
-The assistant produces:
-1. **Primary artifact**: ADR in Markdown (1500-2500 words)
-2. **Supporting artifact**: Trade-off matrix (table format)
-3. **Optional**: Architecture diagrams (C4 model Level 2-3)
-
-**File naming convention**: 
-- ADR-YYYY-MM-DD-short-title.md
-- tradeoff-YYYY-MM-DD-short-title.md
-5. Build in Quality Gates
-markdown
-## Quality Checklist
-Before finalizing output, verify:
-- [ ] All considered options have pros/cons documented
-- [ ] Decision rationale references business drivers
-- [ ] Trade-offs are explicitly stated
-- [ ] Risks are identified with mitigation strategies
-- [ ] Next steps are actionable and assigned
-
-**If any item fails, revise before presenting**.
-Next Steps
-Immediate Actions:
-
-Crea la struttura cartelle proposta
-Migra "Architecture Review Assistant" nella nuova struttura
-Aggiungi README.md principale con navigation
-Quick Wins (nuovi use cases da aggiungere):
-
-Cloud Migration Strategy Generator
-System Integration Pattern Selector
-Non-Functional Requirements Analyzer
-Legacy Modernization Assessor
-Vuoi che iniziamo con uno di questi nuovi use cases? Posso guidarti step-by-step nella creazione del SystemPrompt.md e dei template correlati.
-
-ti ho fornito il system ptompt che ho scritto per il caso d'use Architecture review. ora devo generare i file oer completare il repoository. ti chiedo ora di generare il file quality-gates.md delle referenze.
-il file che devi generare deve essere esclusivamente in formato md, usa gli artifact
-
-quality-gates.md
-Code 
-Ecco il file quality-gates.md completo per le tue referenze.
-
-Struttura del documento
-Ho organizzato il contenuto in 5 gate progressivi che mappano il ciclo di vita architetturale:
-
-Conceptual Architecture Review - Validazione iniziale dell'idea
-Detailed Design Review - Design completo prima dell'implementazione
-Implementation Readiness - Pronto per iniziare a costruire
-Pre-Production Review - Pronto per il deploy in produzione
-Post-Launch Review - Validazione dopo il rilascio
-Caratteristiche chiave
-Per ogni gate troverai:
-
-Exit criteria specifici e misurabili
-Red flags che bloccano il passaggio
-Categorie logiche (business, technical, operational)
-Sezioni di supporto:
-
-Quality Metrics Reference - Soglie numeriche concrete (p50, p95, p99)
-Gate Assessment Template - Template per documentare il risultato della review
-Usage Guidelines - Come adattare i gate al tuo contesto (startup vs enterprise)
-Il documento è pronto per essere utilizzato sia come checklist durante le review, sia come riferimento per stabilire gli standard di qualità nel tuo team.
-
-Vuoi che generi ora un altro file delle referenze (es. anti-patterns-catalog.md o quality-attributes-catalog.md)?
-
-ora genera il file md per example-review-prompts.md
-
-example-review-prompts.md
-Code 
-
-
-Session limit reached ∙ resets 10:00 PM
-Upgrade
-
-
-
-
-
 # Example Review Prompts
 
 ## Overview
@@ -335,11 +24,12 @@ This document provides ready-to-use prompts for different architecture review sc
 ## 1. New System Design Review
 
 ### Scenario
+
 Reviewing a proposed architecture for a greenfield system before development starts.
 
 ### Prompt Template
 
-```
+````text
 I need an architecture review for a new system we're about to build.
 
 ## System Context
@@ -391,9 +81,10 @@ I need an architecture review for a new system we're about to build.
 3. [e.g., Concerned about database scalability]
 
 Please provide a comprehensive architecture review focusing on risks, potential issues, and specific recommendations.
-```
+````
 
 ### Expected Output
+
 - Executive summary with overall assessment
 - Detailed findings across all 9 review dimensions
 - Prioritized list of issues (Critical, High, Medium, Low)
@@ -405,11 +96,12 @@ Please provide a comprehensive architecture review focusing on risks, potential 
 ## 2. Microservices Architecture Review
 
 ### Scenario
+
 Evaluating an existing or proposed microservices architecture for issues like distributed monolith, chatty services, or improper boundaries.
 
 ### Prompt Template
 
-```
+````text
 Review our microservices architecture for potential issues and improvements.
 
 ## System Overview
@@ -452,9 +144,10 @@ Review our microservices architecture for potential issues and improvements.
 - Should some services be consolidated?
 
 Please identify anti-patterns, assess service granularity, and recommend improvements.
-```
+````
 
 ### Expected Output
+
 - Service boundary analysis
 - Identification of distributed monolith symptoms
 - Communication pattern assessment
@@ -467,11 +160,12 @@ Please identify anti-patterns, assess service granularity, and recommend improve
 ## 3. Cloud Migration Assessment
 
 ### Scenario
+
 Planning to migrate an on-premises system to the cloud and need to evaluate the proposed migration strategy.
 
 ### Prompt Template
 
-```
+````text
 Review our cloud migration strategy and architecture.
 
 ## Current State (On-Premises)
@@ -527,9 +221,10 @@ Review our cloud migration strategy and architecture.
 3. [e.g., Performance degradation after migration]
 
 Evaluate the migration strategy, identify risks, and recommend improvements or alternatives.
-```
+````
 
 ### Expected Output
+
 - Migration strategy assessment
 - Risk analysis for each phase
 - Cost optimization recommendations
@@ -543,11 +238,12 @@ Evaluate the migration strategy, identify risks, and recommend improvements or a
 ## 4. API Design Review
 
 ### Scenario
+
 Reviewing API design before implementation to ensure it's well-structured, scalable, and maintainable.
 
 ### Prompt Template
 
-```
+````text
 Review our API design for a new service.
 
 ## API Overview
@@ -642,9 +338,10 @@ Response 404:
 - Do we need webhooks for real-time updates?
 
 Review for REST best practices, scalability, security, and developer experience.
-```
+````
 
 ### Expected Output
+
 - RESTful design compliance assessment
 - Endpoint structure evaluation
 - Versioning strategy review
@@ -659,11 +356,12 @@ Review for REST best practices, scalability, security, and developer experience.
 ## 5. Security Architecture Review
 
 ### Scenario
+
 Comprehensive security review before production launch or after a security audit finding.
 
 ### Prompt Template
 
-```
+````text
 Conduct a security architecture review for our system.
 
 ## System Overview
@@ -749,9 +447,10 @@ Conduct a security architecture review for our system.
 3. [e.g., Should we implement additional DLP controls?]
 
 Perform comprehensive security review and identify gaps or risks.
-```
+````
 
 ### Expected Output
+
 - Security posture assessment across all layers
 - Compliance gap analysis
 - Threat model validation
@@ -765,11 +464,12 @@ Perform comprehensive security review and identify gaps or risks.
 ## 6. Legacy System Modernization
 
 ### Scenario
+
 Assessing options for modernizing a legacy system and reviewing the proposed approach.
 
 ### Prompt Template
 
-```
+````text
 Review our legacy system modernization strategy.
 
 ## Current Legacy System
@@ -861,9 +561,10 @@ Review our legacy system modernization strategy.
 - How do we handle data consistency during migration?
 
 Evaluate the modernization strategy, identify risks, and provide recommendations.
-```
+````
 
 ### Expected Output
+
 - Modernization approach assessment
 - Risk analysis for each phase
 - Data migration strategy evaluation
@@ -878,11 +579,12 @@ Evaluate the modernization strategy, identify risks, and provide recommendations
 ## 7. Production Readiness Review
 
 ### Scenario
+
 Final review before production launch to ensure operational readiness.
 
 ### Prompt Template
 
-```
+````text
 Conduct a production readiness review for our system launching in 2 weeks.
 
 ## System Overview
@@ -1028,9 +730,10 @@ Alerts Configured:
 3. [e.g., Should we do a smaller canary (5%) first?]
 
 Evaluate production readiness and provide go/no-go recommendation.
-```
+````
 
 ### Expected Output
+
 - Go/No-Go recommendation with clear rationale
 - Production readiness checklist assessment
 - Critical blockers identification
@@ -1044,11 +747,12 @@ Evaluate production readiness and provide go/no-go recommendation.
 ## 8. Performance Optimization Review
 
 ### Scenario
+
 System experiencing performance issues in production; need to identify bottlenecks and optimization opportunities.
 
 ### Prompt Template
 
-```
+````text
 Review our system for performance optimization opportunities.
 
 ## Current Performance Issues
@@ -1147,4 +851,178 @@ Top Time Consumers (Order Endpoint):
 1. Payment gateway call: 52% (1.5s)
 2. Email sending: 18% (800ms)
 3. Database queries: 20% (600ms)
-4. Business logic: 
+4. Business logic: 10% (300ms)
+```
+
+### Infrastructure Metrics
+- **API tier CPU**: [e.g., 40% average, 65% peak]
+- **App tier CPU**: [e.g., 55% average, 85% peak]
+- **DB CPU / IOPS**: [e.g., 95% CPU, IOPS at provisioned limit]
+- **Connection pool**: [e.g., 90 of 100 in use, waits > 200ms at peak]
+- **GC / memory**: [e.g., p99 GC pause 1.2s, heap at 85%]
+
+## Constraints
+- **Budget for changes**: [e.g., up to 20% more infrastructure spend]
+- **Change window**: [e.g., no schema changes during Black Friday freeze]
+- **Team capacity**: [e.g., 2 developers for 4 weeks]
+- **Must keep**: [e.g., current database engine, current API contracts]
+
+## Specific Questions
+1. [e.g., Where is the largest win: query tuning, caching, or scaling out?]
+2. [e.g., Should the payment call and the email be moved off the request path?]
+3. [e.g., Is the current SLA (p95 < 500ms) realistic given a 1.5s external dependency?]
+
+Please rank optimizations by expected impact versus effort, tell me what to measure before and after each change, and flag anything that looks like premature optimization.
+````
+
+### Expected Output
+
+- Bottleneck analysis ordered by share of total latency (measured, not guessed)
+- Quick wins (< 1 week) vs structural changes, each with effort and expected gain
+- Realism check of the performance targets against external dependencies
+- Validation plan: load test scenario, metrics, success thresholds
+- Risks of each optimization (staleness, complexity, operational cost)
+
+---
+
+## 9. Data Architecture Review
+
+### Scenario
+
+Data platform, database design or data-flow changes need validation: ownership, consistency, scalability, governance and migration risk.
+
+### Prompt Template
+
+````text
+Review our data architecture for correctness, scalability and governance.
+
+## System Context
+- **Purpose**: [e.g., Order and customer data platform for e-commerce]
+- **Data volume**: [e.g., 2 TB today, +30% per year, 5M new rows/day]
+- **Access patterns**: [e.g., 95% reads, point lookups plus daily analytical aggregates]
+- **Criticality**: [e.g., Tier 1, RPO 5 min, RTO 1 h]
+
+## Current or Proposed Data Model
+- **Stores**: [e.g., PostgreSQL (orders), Redis (sessions), S3 (documents), Snowflake (analytics)]
+- **Key entities**: [e.g., Customer, Order, Payment, Product]
+- **Schema highlights**: [paste ERD summary or key tables]
+- **Data ownership**: [e.g., which service or team is the system of record for each entity]
+
+## Consistency and Transactions
+- **Cross-entity transactions**: [e.g., Order + Payment + Inventory updated together]
+- **Consistency model**: [e.g., strong within a service, eventual across services]
+- **Idempotency and duplicates**: [e.g., how retries and replays are handled]
+
+## Data Movement
+- **Integration**: [e.g., CDC via Debezium to Kafka, nightly ETL to warehouse]
+- **Latency needs**: [e.g., analytics freshness under 15 minutes]
+- **Data quality controls**: [e.g., schema registry, validation at ingestion]
+
+## Governance and Compliance
+- **Sensitive data**: [e.g., PII, payment data, special categories]
+- **Regulations**: [e.g., GDPR, PCI DSS, sector rules]
+- **Retention and deletion**: [e.g., 7 years for invoices, erasure on request]
+- **Access control and audit**: [e.g., column-level masking, audit log retention]
+
+## Scalability and Operations
+- **Growth expectations**: [e.g., 3x in 24 months]
+- **Backup and recovery**: [e.g., PITR enabled, last restore test 8 months ago]
+- **Schema evolution**: [e.g., migrations via Flyway, expand/contract policy?]
+
+## Specific Concerns
+1. [e.g., Are we mixing OLTP and reporting workloads on the same database?]
+2. [e.g., Is polyglot persistence justified or accidental?]
+3. [e.g., Can we honor GDPR erasure across all copies of the data?]
+
+Please assess the data architecture and recommend improvements with priorities and effort.
+````
+
+### Expected Output
+
+- Ownership map: system of record per entity, unowned or duplicated data
+- Consistency analysis: where eventual consistency is safe and where it is not
+- Storage fit: is each database choice justified by access patterns
+- Governance gaps: classification, retention, deletion, lineage, audit
+- Scalability and recovery assessment (backup restore evidence, partitioning, hot spots)
+- Migration and schema-evolution risks
+- Prioritized recommendations with effort estimates
+
+---
+
+## 10. Integration Architecture Review
+
+### Scenario
+
+Multiple systems (internal, partners, SaaS, legacy) must exchange data reliably; review integration style, contracts, resilience and operability.
+
+### Prompt Template
+
+````text
+Review our integration architecture for reliability, coupling and operability.
+
+## Integration Landscape
+- **Systems involved**: [e.g., ERP, CRM, e-commerce platform, payment provider, WMS]
+- **Integration styles in use**: [e.g., REST, SOAP, file transfer, message queue, database links]
+- **Integration platform**: [e.g., MuleSoft, Kafka, custom point-to-point, none]
+- **Volumes and latency needs**: [e.g., 50K events/hour, order status within 5 seconds]
+
+## Integration Inventory
+| # | Source | Target | Style | Pattern | Owner | Known issues |
+|---|--------|--------|-------|---------|-------|--------------|
+| 1 | [e.g., Shop] | [e.g., ERP] | [e.g., REST] | [e.g., request/response] | [team] | [e.g., timeouts] |
+| 2 | [e.g., ERP] | [e.g., WMS] | [e.g., SFTP CSV] | [e.g., nightly batch] | [team] | [e.g., no retry] |
+
+## Contracts and Versioning
+- **Contract format**: [e.g., OpenAPI, AsyncAPI, XSD, none]
+- **Versioning and deprecation policy**: [e.g., URL versioning, 6-month sunset]
+- **Schema ownership and change process**: [e.g., who approves breaking changes]
+
+## Reliability
+- **Delivery semantics**: [e.g., at-least-once with idempotent consumers?]
+- **Error handling**: [e.g., dead-letter queues, retry with backoff, manual replay]
+- **Timeouts, circuit breakers, bulkheads**: [e.g., present on external calls only]
+- **Ordering and duplicates**: [e.g., ordering required per order ID]
+
+## Security
+- **Authentication between systems**: [e.g., OAuth2 client credentials, mTLS, shared API keys]
+- **Data in transit and at rest**: [e.g., TLS 1.2+, encrypted queues]
+- **Third-party exposure**: [e.g., which partners can reach which APIs]
+
+## Observability and Operations
+- **Correlation across systems**: [e.g., trace or correlation IDs propagated?]
+- **Monitoring and alerting**: [e.g., queue depth, consumer lag, failure rates]
+- **Runbooks and ownership**: [e.g., who is paged when an integration fails]
+
+## Specific Concerns
+1. [e.g., Point-to-point connections are multiplying, is it time for an event backbone?]
+2. [e.g., How do we stop one slow partner from degrading everything else?]
+3. [e.g., How should we handle breaking API changes for external consumers?]
+
+Please review the integration architecture, identify coupling and failure risks, and recommend a target integration approach.
+````
+
+### Expected Output
+
+- Integration map with style, coupling and criticality per link
+- Failure-mode analysis (partner down, duplicate messages, out-of-order events, poison messages)
+- Contract and versioning assessment
+- Sync vs async fit per interaction, with justification
+- Security and observability gaps
+- Target-state recommendation with a phased migration path and effort estimates
+
+---
+
+## Tips for Effective Review Prompts
+
+1. **Give numbers, not adjectives.** "p95 3.5s against a 500ms target" beats "it is slow".
+2. **State constraints up front** (budget, deadline, skills, must-keep technology). Recommendations that ignore constraints are useless.
+3. **Attach evidence**: diagrams, metrics, incident history, ADRs. Say explicitly what you did not provide.
+4. **Ask specific questions.** Open-ended requests get generic answers.
+5. **Name the decision at stake** (go/no-go, build vs buy, migrate or not) so the review can end in a recommendation.
+6. **Iterate.** Run a first pass, answer the reviewer's clarifying questions, then request the deep dive on the top risks.
+7. **Challenge the result.** Ask the reviewer what would make its recommendation wrong.
+
+---
+
+**Document Version**: 1.1
+**Companion to**: `SKILL.md` (Architecture Review Assistant)

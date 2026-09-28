@@ -6,6 +6,21 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 
 ---
 
+## Contents
+
+- Overview
+- Gate 1: Conceptual Architecture Review
+- Gate 2: Detailed Design Review
+- Gate 3: Implementation Readiness Review
+- Gate 4: Pre-Production Review
+- Gate 5: Post-Launch Review
+- Quality Metrics Reference
+- Gate Assessment Template
+- Usage Guidelines
+- Related Resources
+
+---
+
 ## Gate 1: Conceptual Architecture Review
 
 **Timing**: After initial architecture vision, before detailed design
@@ -15,6 +30,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 ### Exit Criteria
 
 #### Business Alignment
+
 - [ ] Architecture supports all critical business capabilities
 - [ ] Solution aligns with business strategy and roadmap
 - [ ] Value proposition is clearly articulated
@@ -22,6 +38,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 - [ ] Stakeholders identified and engaged
 
 #### Technical Feasibility
+
 - [ ] No obvious technical blockers identified
 - [ ] Technology choices appropriate for problem domain
 - [ ] Integration points with existing systems understood
@@ -29,6 +46,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 - [ ] Security and compliance requirements identified
 
 #### Organizational Readiness
+
 - [ ] Team has or can acquire necessary skills
 - [ ] Budget estimate within acceptable range (±30%)
 - [ ] Timeline realistic for scope
@@ -36,6 +54,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 - [ ] Executive sponsorship confirmed
 
 ### Red Flags (Gate Cannot Pass)
+
 - Critical business requirements cannot be met
 - Fundamental technical approach is flawed
 - Cost exceeds budget by >50%
@@ -53,6 +72,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 ### Exit Criteria
 
 #### Functional Completeness
+
 - [ ] All functional requirements mapped to components
 - [ ] Component responsibilities clearly defined
 - [ ] Interfaces and contracts specified
@@ -60,6 +80,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 - [ ] Edge cases and error scenarios addressed
 
 #### Quality Attributes
+
 - [ ] Performance targets quantified with acceptable ranges
 - [ ] Scalability approach defined with capacity planning
 - [ ] Security architecture documented (authn/authz model)
@@ -68,6 +89,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 - [ ] Observability strategy defined (logs, metrics, traces)
 
 #### Technology Stack
+
 - [ ] All technology choices documented with rationale
 - [ ] Technology maturity assessed and risks identified
 - [ ] Licensing costs and implications understood
@@ -76,6 +98,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 - [ ] Proof of concepts completed for high-risk choices
 
 #### Architecture Patterns
+
 - [ ] Patterns appropriately selected for context
 - [ ] Pattern trade-offs understood and documented
 - [ ] Patterns applied consistently across system
@@ -83,6 +106,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 - [ ] Pattern variations justified
 
 #### Data Architecture
+
 - [ ] Data models defined and normalized
 - [ ] Database choices justified (relational/NoSQL/cache)
 - [ ] Data ownership boundaries clear
@@ -92,6 +116,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 - [ ] Data privacy and compliance addressed (GDPR, HIPAA)
 
 #### Integration & APIs
+
 - [ ] API design follows standards (REST/GraphQL/gRPC)
 - [ ] API versioning strategy defined
 - [ ] Error handling approach consistent
@@ -101,6 +126,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 - [ ] Backward compatibility strategy defined
 
 #### Security Architecture
+
 - [ ] Threat model completed
 - [ ] Authentication mechanism selected and documented
 - [ ] Authorization model defined (RBAC/ABAC)
@@ -111,6 +137,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 - [ ] Compliance requirements mapped to controls
 
 ### Red Flags (Gate Cannot Pass)
+
 - Functional gaps remain unresolved
 - Quality attributes not quantified or unrealistic
 - Critical technology choices unproven
@@ -129,6 +156,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 ### Exit Criteria
 
 #### Development Environment
+
 - [ ] Development environments provisioned
 - [ ] CI/CD pipeline scaffolding in place
 - [ ] Code repositories created with branch strategy
@@ -137,6 +165,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 - [ ] Code quality gates configured (linting, testing)
 
 #### Architecture Documentation
+
 - [ ] Architecture Decision Records (ADRs) created for key decisions
 - [ ] C4 diagrams completed (Context, Container, Component)
 - [ ] Deployment architecture documented
@@ -145,6 +174,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 - [ ] Data dictionary available
 
 #### Team Readiness
+
 - [ ] Team structure aligns with architecture (Conway's Law)
 - [ ] Roles and responsibilities defined
 - [ ] Training completed for new technologies
@@ -153,6 +183,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 - [ ] Code review process defined
 
 #### Risk Management
+
 - [ ] Risk register created and maintained
 - [ ] High-priority risks have mitigation plans
 - [ ] Technical spike results documented
@@ -160,6 +191,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 - [ ] Contingency plans for critical risks
 
 #### Quality Assurance
+
 - [ ] Test strategy defined (unit, integration, e2e)
 - [ ] Test environments planned
 - [ ] Performance test approach specified
@@ -168,6 +200,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 - [ ] Acceptance criteria defined for features
 
 ### Red Flags (Gate Cannot Pass)
+
 - No CI/CD pipeline plan
 - Team untrained on critical technologies
 - High-risk areas without spike/POC validation
@@ -185,6 +218,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 ### Exit Criteria
 
 #### Functional Validation
+
 - [ ] All critical user journeys tested end-to-end
 - [ ] Edge cases and error scenarios validated
 - [ ] Data migration tested (if applicable)
@@ -193,6 +227,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 - [ ] Feature flags functional for controlled rollout
 
 #### Performance & Scalability
+
 - [ ] Load testing completed against peak traffic scenarios
 - [ ] Performance targets met (p50, p95, p99 latency)
 - [ ] Resource utilization acceptable (CPU, memory, network)
@@ -201,6 +236,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 - [ ] Caching effectiveness validated
 
 #### Security Validation
+
 - [ ] Security testing completed (SAST, DAST)
 - [ ] Penetration testing performed
 - [ ] Vulnerability scan results acceptable
@@ -210,6 +246,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 - [ ] Compliance requirements validated
 
 #### Operational Readiness
+
 - [ ] Monitoring dashboards created for key metrics
 - [ ] Alerting rules configured with appropriate thresholds
 - [ ] Log aggregation functional
@@ -221,6 +258,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 - [ ] Disaster recovery plan validated
 
 #### Deployment Readiness
+
 - [ ] Production infrastructure provisioned
 - [ ] Deployment automation functional and tested
 - [ ] Blue-green or canary deployment strategy tested
@@ -230,6 +268,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 - [ ] SSL certificates valid and renewed
 
 #### Documentation
+
 - [ ] User documentation completed
 - [ ] API documentation published
 - [ ] Operations manual available
@@ -238,6 +277,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 - [ ] Known limitations documented
 
 #### Business Continuity
+
 - [ ] Backup strategy implemented and tested
 - [ ] Disaster recovery plan validated
 - [ ] RTO/RPO targets achievable
@@ -245,6 +285,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 - [ ] Business continuity plan documented
 
 ### Red Flags (Gate Cannot Pass)
+
 - Performance targets not met (p95 > SLA)
 - Critical security vulnerabilities unresolved
 - No monitoring or alerting configured
@@ -263,6 +304,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 ### Exit Criteria
 
 #### Production Stability
+
 - [ ] System availability meets SLA (measured)
 - [ ] Error rates within acceptable thresholds
 - [ ] Performance targets consistently met
@@ -271,6 +313,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 - [ ] Resource utilization stable and predictable
 
 #### Operational Effectiveness
+
 - [ ] Monitoring provides adequate visibility
 - [ ] Alerts are actionable (low false positive rate)
 - [ ] Incident response times acceptable
@@ -279,6 +322,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 - [ ] On-call burden reasonable (<5 pages/week)
 
 #### User Adoption
+
 - [ ] User adoption tracking against projections
 - [ ] User feedback collected and analyzed
 - [ ] Critical user journeys performing well
@@ -286,6 +330,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 - [ ] Support ticket volume manageable
 
 #### Technical Debt Assessment
+
 - [ ] Technical debt log created
 - [ ] Priority issues identified for next iteration
 - [ ] Shortcuts taken during delivery documented
@@ -293,6 +338,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 - [ ] Refactoring opportunities identified
 
 #### Lessons Learned
+
 - [ ] Retrospective conducted with team
 - [ ] What went well documented
 - [ ] What could improve documented
@@ -300,6 +346,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 - [ ] Knowledge transferred to operations team
 
 ### Red Flags (Immediate Action Required)
+
 - SLA violations occurring
 - Critical incidents recurring
 - User adoption significantly below projections
@@ -310,10 +357,12 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 
 ## Quality Metrics Reference
 
+> **Calibration note**: all thresholds in the tables below are indicative starting points, not standards. Calibrate to the system's tier and its own SLOs; a monthly deployment cadence is not a defect for a core banking ledger with change freezes, but is a warning for a SaaS web app.
+
 ### Performance Metrics
 
 | Metric | Target | Warning | Critical |
-|--------|--------|---------|----------|
+| -------- | -------- | --------- | ---------- |
 | Response Time (p50) | <200ms | 200-500ms | >500ms |
 | Response Time (p95) | <500ms | 500-1000ms | >1000ms |
 | Response Time (p99) | <1000ms | 1000-2000ms | >2000ms |
@@ -323,7 +372,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 ### Security Metrics
 
 | Metric | Target | Warning | Critical |
-|--------|--------|---------|----------|
+| -------- | -------- | --------- | ---------- |
 | Critical Vulnerabilities | 0 | 0 | >0 |
 | High Vulnerabilities | <5 | 5-10 | >10 |
 | Unpatched Systems | 0 | 1-3 | >3 |
@@ -333,7 +382,7 @@ Quality gates are checkpoint criteria that architecture must satisfy before prog
 ### Operational Metrics
 
 | Metric | Target | Warning | Critical |
-|--------|--------|---------|----------|
+| -------- | -------- | --------- | ---------- |
 | Deployment Frequency | Daily | Weekly | Monthly |
 | Lead Time for Changes | <1 day | 1-7 days | >7 days |
 | Mean Time to Recovery | <1 hour | 1-4 hours | >4 hours |
@@ -391,7 +440,7 @@ Failed Criteria:
 
 ## Decision
 
-**Recommendation**: [APPROVE / CONDITIONAL APPROVE / REJECT]
+**Recommendation**: [APPROVE / APPROVE WITH CONDITIONS / REVISE]  (same vocabulary as SKILL.md)
 
 **Rationale**: [Why this decision]
 
@@ -409,12 +458,14 @@ Failed Criteria:
 ### When to Apply Gates
 
 **Always Required**:
+
 - New systems or major architecture changes
 - Migration to new technology platforms
 - Systems handling sensitive data
 - High-traffic or mission-critical systems
 
 **Optional/Lightweight**:
+
 - Minor feature additions to stable systems
 - Internal tools with limited user base
 - Proof of concepts or experiments
@@ -423,18 +474,21 @@ Failed Criteria:
 ### Tailoring Gates to Context
 
 **For Startups/MVPs**:
+
 - Focus on Gates 1, 2, and 4 (skip 3 for speed)
 - Reduce criteria by 30-40%
 - Prioritize user-facing quality over operational perfection
 - Accept more technical debt with explicit tracking
 
 **For Enterprise/Mission-Critical**:
+
 - Apply all gates rigorously
 - Add organization-specific criteria
 - Require formal sign-offs at each gate
 - Lower tolerance for risk and technical debt
 
-**For Regulated Industries** (Finance, Healthcare):
+**For Regulated Industries** (Finance, Healthcare) - see `regulated-industries.md` for a ready-made overlay:
+
 - Add compliance-specific criteria at each gate
 - Require audit trails for all decisions
 - Include security and compliance team in reviews
@@ -446,3 +500,5 @@ Failed Criteria:
 
 - `anti-patterns-catalog.md` - Common failures to avoid at each gate
 - `quality-attributes-catalog.md` - Detailed quality attribute specifications
+- `review-checklist.md` - Item-level checklist used to evidence each gate criterion
+- `regulated-industries.md` - Extra criteria for regulated sectors

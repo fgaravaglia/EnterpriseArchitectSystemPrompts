@@ -4,28 +4,50 @@ A comprehensive, actionable checklist for conducting architecture reviews. Use t
 
 ---
 
+## Contents
+
+- How to Use This Checklist
+- 1. Functional Requirements
+- 1. Quality Attributes
+- 1. Technology Choices
+- 1. Architecture Patterns
+- 1. Data Architecture
+- 1. Integration & APIs
+- 1. Deployment & Operations
+- 1. Team & Organization
+- 1. Cost & Budget
+-  1. Risk Assessment
+- Summary Scoring
+- Quick Reference: Top Issues to Look For
+
+---
+
 ## How to Use This Checklist
 
 ### Review Types
 
 **Design Review** (Pre-Implementation):
-- Use ALL sections
+
+- Use ALL sections (also apply `quality-gates.md`, Gates 1-2)
 - Focus on design decisions and trade-offs
 - Flag issues before code is written
 
 **Implementation Review** (Mid-Development):
-- Use sections 1-8 (skip deployment/operations details)
+
+- Use sections 1-8 (also apply `quality-gates.md`, Gate 3) (skip deployment/operations details)
 - Focus on code quality and patterns
 - Validate design is being followed
 
 **Production Readiness Review** (Pre-Launch):
-- Use ALL sections with extra focus on 6-9
+
+- Use ALL sections with extra focus on 6-9 (also apply `quality-gates.md`, Gate 4)
 - Focus on operational aspects
 - Validate system is ready for production load
 
 ### Scoring
 
 For each item, use this scale:
+
 - ✅ **Pass**: Meets requirements, no issues
 - ⚠️ **Warning**: Has issues but acceptable with mitigation
 - 🚨 **Fail**: Critical issue, must be fixed
@@ -34,10 +56,17 @@ For each item, use this scale:
 ### Priority
 
 When issues are found, assign priority:
+
 - **P0 (Critical)**: Must fix before proceeding
 - **P1 (High)**: Should fix before production
 - **P2 (Medium)**: Fix in next iteration
 - **P3 (Low)**: Nice to have, backlog
+
+The definitions, decision rules and effort scale for these priorities live in `SKILL.md` (Severity model). Use the same labels in reports: P0 = Critical, P1 = High, P2 = Medium, P3 = Low.
+
+### Evidence rule
+
+Every ✅ needs evidence (a document section, a metric, a test result). If the submitted material does not show it, mark it ⚠️ "not evidenced" rather than ✅. Absence of evidence is a finding, not a pass.
 
 ---
 
@@ -54,6 +83,7 @@ When issues are found, assign priority:
 **Evidence**: Requirements traceability matrix, component responsibility document
 
 **Common Issues**:
+
 - 🚩 Vague requirements ("system should be fast")
 - 🚩 Requirements without architectural home
 - 🚩 Overlapping responsibilities between components
@@ -71,6 +101,7 @@ When issues are found, assign priority:
 **Test**: Walk through top 3 user journeys step-by-step
 
 **Questions to Ask**:
+
 - What happens if payment fails?
 - What happens if user session expires mid-transaction?
 - How does system handle duplicate requests?
@@ -86,6 +117,7 @@ When issues are found, assign priority:
 - [ ] Timeout and retry policies are specified
 
 **Red Flags**:
+
 - 🚩 "We'll integrate with System X" (no details on how)
 - 🚩 Missing error handling for external calls
 - 🚩 No timeout values specified
@@ -105,6 +137,7 @@ When issues are found, assign priority:
 - [ ] Targets are validated as achievable
 
 **Example Good Targets**:
+
 - API response time: p95 < 200ms, p99 < 500ms
 - Throughput: 10,000 requests/second sustained
 - Database queries: p95 < 50ms
@@ -119,6 +152,7 @@ When issues are found, assign priority:
 - [ ] CDN used for static assets (if web application)
 
 **Check For**:
+
 - 🚩 No caching at all
 - 🚩 Queries in loops (N+1 problem)
 - 🚩 Synchronous processing for non-critical operations
@@ -161,6 +195,7 @@ When issues are found, assign priority:
 - [ ] Indexes support projected query volume
 
 **Red Flags**:
+
 - 🚩 Stateful services (session data in memory)
 - 🚩 Server affinity (sticky sessions)
 - 🚩 No plan for database growth beyond 10x current size
@@ -180,11 +215,13 @@ When issues are found, assign priority:
 - [ ] Multi-AZ or multi-region deployment (if required)
 
 **Calculate Downtime**:
+
 - 99.9% = 8.76 hours/year
 - 99.95% = 4.38 hours/year
 - 99.99% = 52.6 minutes/year
 
 **Check**:
+
 - [ ] Is calculated availability meeting target?
 - [ ] Single component failure = system down? (If yes, 🚨)
 
@@ -198,6 +235,7 @@ When issues are found, assign priority:
 - [ ] Fallback mechanisms implemented
 
 **Test Each External Integration**:
+
 - What happens if it times out?
 - What happens if it returns errors?
 - What happens if it's completely down?
@@ -212,6 +250,7 @@ When issues are found, assign priority:
 - [ ] Failover procedures documented and tested
 
 **Questions**:
+
 - Can you restore from backup in less than RTO?
 - How much data would you lose? (Is it less than RPO?)
 - When was the last DR test?
@@ -219,6 +258,8 @@ When issues are found, assign priority:
 ---
 
 ### 2.4 Security
+
+> Regulated context (finance, healthcare, critical infrastructure)? Also load `regulated-industries.md`.
 
 #### Authentication & Authorization
 
@@ -230,6 +271,7 @@ When issues are found, assign priority:
 - [ ] Password policy defined (if applicable)
 
 **Check**:
+
 - [ ] No hardcoded credentials in code/config
 - [ ] Secrets stored in secrets manager (Vault, AWS Secrets Manager)
 - [ ] API keys have appropriate scopes (least privilege)
@@ -244,6 +286,7 @@ When issues are found, assign priority:
 - [ ] Data deletion/anonymization strategy (GDPR right to be forgotten)
 
 **Red Flags**:
+
 - 🚩 No encryption for sensitive data
 - 🚩 TLS 1.0 or 1.1 (deprecated, insecure)
 - 🚩 Credit card data stored (PCI DSS violation unless certified)
@@ -260,6 +303,7 @@ When issues are found, assign priority:
 - [ ] API authentication on all endpoints
 
 **OWASP Top 10 Check**:
+
 - [ ] Protection against injection attacks
 - [ ] Broken authentication mitigated
 - [ ] Sensitive data exposure prevented
@@ -294,6 +338,7 @@ When issues are found, assign priority:
 - [ ] Dependency direction is correct (no circular dependencies)
 
 **Metrics**:
+
 - [ ] Cyclomatic complexity < 10 per method
 - [ ] Class/module size reasonable (< 500 lines)
 - [ ] Code duplication < 5%
@@ -308,6 +353,7 @@ When issues are found, assign priority:
 - [ ] Tests are reliable (not flaky)
 
 **Test Pyramid Check**:
+
 - Many unit tests (60%+)
 - Some integration tests (30%)
 - Few E2E tests (10%)
@@ -338,6 +384,7 @@ When issues are found, assign priority:
 - [ ] Licensing costs understood and budgeted
 
 **Questions for Each Technology**:
+
 - Why this technology over alternatives?
 - Does the team know it?
 - Can we operate it in production?
@@ -345,6 +392,7 @@ When issues are found, assign priority:
 - What's the total cost of ownership?
 
 **Red Flags**:
+
 - 🚩 Bleeding-edge tech (v0.x) for critical systems
 - 🚩 No evaluation of alternatives
 - 🚩 Technology choice not documented
@@ -361,6 +409,7 @@ When issues are found, assign priority:
 - [ ] Upgrade path exists for all technologies
 
 **Check**:
+
 - Are we mixing incompatible versions? (Python 2 + Python 3)
 - Are there known conflicts? (Library A and Library B don't work together)
 
@@ -377,12 +426,14 @@ When issues are found, assign priority:
 - [ ] No pattern over-engineering
 
 **Check Each Pattern**:
+
 - **Microservices**: Do you have team size and need for independence?
 - **Event-Driven**: Do you need async communication and eventual consistency is OK?
 - **CQRS**: Do you have complex read requirements different from write?
 - **Saga**: Do you need distributed transactions across services?
 
 **Red Flags**:
+
 - 🚩 Microservices for 3-person team
 - 🚩 CQRS for simple CRUD app
 - 🚩 Event-driven for everything (including synchronous workflows)
@@ -394,18 +445,21 @@ When issues are found, assign priority:
 Check against common anti-patterns:
 
 **Microservices Anti-Patterns**:
+
 - [ ] No distributed monolith (services share database)
 - [ ] No god service (service doing too much)
 - [ ] No chatty APIs (too many round trips)
 - [ ] Services have clear bounded contexts
 
 **Data Anti-Patterns**:
+
 - [ ] No N+1 query problem
 - [ ] No anemic domain model (business logic in services, not domain)
 - [ ] No database as integration point
 - [ ] Clear data ownership per service
 
 **Integration Anti-Patterns**:
+
 - [ ] No long synchronous call chains (A→B→C→D)
 - [ ] Circuit breakers for external calls
 - [ ] No retry storms (exponential backoff + jitter)
@@ -434,6 +488,7 @@ Check against common anti-patterns:
 - [ ] Database choice is justified (ADR)
 
 **Match Database to Use Case**:
+
 - **Transactional data**: Relational (PostgreSQL, MySQL)
 - **Document storage**: Document DB (MongoDB, DynamoDB)
 - **Caching**: Redis, Memcached
@@ -478,6 +533,7 @@ Check against common anti-patterns:
 - [ ] API versioning strategy defined
 
 **REST Checklist**:
+
 - [ ] Nouns for resources, not verbs (`/orders` not `/getOrders`)
 - [ ] HTTP methods used correctly (GET, POST, PUT, PATCH, DELETE)
 - [ ] 2xx for success, 4xx for client errors, 5xx for server errors
@@ -493,6 +549,7 @@ Check against common anti-patterns:
 - [ ] Version upgrade path clear
 
 **Example**:
+
 - URL versioning: `/api/v1/orders`, `/api/v2/orders`
 - Header versioning: `Accept: application/vnd.myapp.v2+json`
 
@@ -507,6 +564,7 @@ Check against common anti-patterns:
 - [ ] Correlation IDs in errors (for tracing)
 
 **Example Error Format**:
+
 ```json
 {
   "error": {
@@ -531,8 +589,9 @@ Check against common anti-patterns:
 - [ ] Idempotency keys for critical operations
 
 **Decision Matrix**:
+
 | Use Case | Pattern |
-|----------|---------|
+| ---------- | --------- |
 | Need immediate response | Synchronous (REST, gRPC) |
 | Fire-and-forget | Asynchronous (Message queue) |
 | Multiple consumers | Pub/Sub (Kafka, SNS) |
@@ -552,6 +611,7 @@ Check against common anti-patterns:
 - [ ] Secrets management integrated
 
 **Zero-Downtime Deployment**:
+
 - [ ] Health checks prevent traffic to unhealthy instances
 - [ ] Old version kept running during deployment
 - [ ] Rollback is quick (<5 minutes)
@@ -578,6 +638,7 @@ Check against common anti-patterns:
 - [ ] RED metrics for services (Rate, Errors, Duration)
 
 **Key Metrics**:
+
 - Request rate (requests/second)
 - Error rate (errors/second, percentage)
 - Latency (p50, p95, p99)
@@ -634,6 +695,7 @@ Check against common anti-patterns:
 - [ ] Training plan for skill gaps
 
 **Conway's Law**: Organizations design systems that mirror their communication structure.
+
 - Microservices → Multiple small teams
 - Monolith → Single team
 
@@ -648,6 +710,7 @@ Check against common anti-patterns:
 - [ ] Mentoring/pairing for knowledge transfer
 
 **Red Flags**:
+
 - 🚩 Only one person knows critical system
 - 🚩 Team has zero experience with chosen tech stack
 - 🚩 No plan to acquire necessary skills
@@ -676,6 +739,7 @@ Check against common anti-patterns:
 - [ ] Total Cost of Ownership (TCO) calculated
 
 **TCO Formula**:
+
 ```
 TCO = Infrastructure + Licenses + Development + Operations + Training + Migration
 ```
@@ -702,6 +766,7 @@ TCO = Infrastructure + Licenses + Development + Operations + Training + Migratio
 - [ ] Risk owners assigned
 
 **Common Technical Risks**:
+
 - Third-party service dependency
 - Data migration complexity
 - Performance at scale
@@ -731,7 +796,7 @@ TCO = Infrastructure + Licenses + Development + Operations + Training + Migratio
 ## Summary Scoring
 
 | Category | Pass | Warning | Fail | N/A |
-|----------|------|---------|------|-----|
+| ---------- | ------ | --------- | ------ | ----- |
 | 1. Functional Requirements | ___ | ___ | ___ | ___ |
 | 2. Quality Attributes | ___ | ___ | ___ | ___ |
 | 3. Technology Choices | ___ | ___ | ___ | ___ |
@@ -743,7 +808,8 @@ TCO = Infrastructure + Licenses + Development + Operations + Training + Migratio
 | 9. Cost & Budget | ___ | ___ | ___ | ___ |
 | 10. Risk Assessment | ___ | ___ | ___ | ___ |
 
-**Overall Assessment**: 
+**Overall Assessment**:
+
 - ✅ **Approve**: No critical issues
 - ⚠️ **Approve with Conditions**: Some issues must be fixed
 - 🚨 **Revise**: Too many critical issues, needs redesign
@@ -767,6 +833,6 @@ TCO = Infrastructure + Licenses + Development + Operations + Training + Migratio
 
 ---
 
-**Checklist Version**: 1.0  
-**Last Updated**: 2024-10-30  
+**Checklist Version**: 1.1  
+**Last Updated**: 2024-10-30 (structure), reviewed and aligned with SKILL.md severity model  
 **Maintained by**: Enterprise Architecture Team

@@ -1,10 +1,10 @@
-# Enterprise Architecture System Prompts (EASP)
+# Enterprise Architecture System (EAS)
 
-**Accelerating Digital Strategy Through Automated Intelligence:** Traditional Enterprise Architecture is often perceived as a bottleneck. EASP is an open-source framework designed to transform Large Language Models (LLMs) into expert architectural assistants capable of orchestrating complex decisions, technical documentation, and risk analysis in a fraction of the standard time.
+**Accelerating Digital Strategy Through Automated Intelligence:** Traditional Enterprise Architecture is often perceived as a bottleneck. EAS is an open-source framework designed to transform Large Language Models (LLMs) into expert architectural assistants capable of orchestrating complex decisions, technical documentation, and risk analysis in a fraction of the standard time.
 
 ## Strategic Value Proposition
 
-In a technological landscape moving at the speed of AI, consistency in decision-making is the only sustainable competitive advantage. EASP applies proven methodologies (C4 Model, 6R Framework, ADR) to:
+In a technological landscape moving at the speed of AI, consistency in decision-making is the only sustainable competitive advantage. EAS applies proven methodologies (C4 Model, 6R Framework, ADR) to:
 
 - Reduce by 70% the time spent on repetitive technical documentation.
 - Standardize Decision-Making by eliminating cognitive biases in technology selection.
@@ -14,7 +14,7 @@ In a technological landscape moving at the speed of AI, consistency in decision-
 
 ## 🎯 Framework Architecture: The 5 Core Pillars
 
-EASP is a collection of **expert AI Assistants** specifically designed for Enterprise Architects and engineering leaders. Each skill embeds proven methodologies and frameworks refined through real-world CTO experience.
+EAS is a collection of **expert AI Assistants** specifically designed for Enterprise Architects and engineering leaders. Each skill embeds proven methodologies and frameworks refined through real-world CTO experience.
 Each agent in this repository is engineered to handle a critical phase of the architecture lifecycle. They are designed to:
 
 - **Accelerate** the production of quality documentation
@@ -152,7 +152,7 @@ When using the `SystemPrompt.md` for Technology Assessment, you must explicitly 
 
 ## 💡 Deployment & Integration
 
-EASP is LLM-agnostic and designed to work with Gemini, Claude, ChatGpt, and other herness tools.
+EAS is LLM-agnostic and designed to work with Gemini, Claude, ChatGpt, and other herness tools.
 
 ### 📂 Repository Structure
 
