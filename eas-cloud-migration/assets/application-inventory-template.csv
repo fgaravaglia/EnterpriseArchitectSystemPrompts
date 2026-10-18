@@ -1,0 +1,6 @@
+app_name,business_owner,current_env,source,BV,TT,CR,CH,TL,usage,duplicate_of,hw_dependency,vendor_unsupported_in_cloud,saas_fit_pct,managed_alternative,refactor_case,dependencies,criticality,notes
+Core Billing,Finance,On-prem DC,vmware,5,2,2,3,5,high,,no,no,20,yes,positive,Customer DB;ERP,tier1,Monolith; 3-day batch window
+Internal Wiki,IT Ops,Single VM,vmware,2,4,3,5,3,low,,no,no,90,no,unknown,,tier3,Confluence-like
+Legacy ETL,Data Team,Private cloud,vmware,4,3,4,4,4,high,,no,no,30,yes,unknown,Core DB;Data Lake,tier2,Cron-based jobs
+Mainframe Ledger,Finance,Mainframe,other,5,1,1,1,5,high,,yes,yes,0,no,negative,,tier1,Regulatory ledger
+Old Reporting,BI,VM,vmware,2,3,3,5,1,low,Power BI Reports,no,no,100,no,unknown,,tier3,Duplicate of new BI
