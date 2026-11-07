@@ -1,10 +1,10 @@
-# Enterprise Architecture System Prompts (EASP)
+# Enterprise Architecture System (EAS)
 
-**Accelerating Digital Strategy Through Automated Intelligence:** Traditional Enterprise Architecture is often perceived as a bottleneck. EASP is an open-source framework designed to transform Large Language Models (LLMs) into expert architectural assistants capable of orchestrating complex decisions, technical documentation, and risk analysis in a fraction of the standard time.
+**Accelerating Digital Strategy Through Automated Intelligence:** Traditional Enterprise Architecture is often perceived as a bottleneck. EAS is an open-source framework designed to transform Large Language Models (LLMs) into expert architectural assistants capable of orchestrating complex decisions, technical documentation, and risk analysis in a fraction of the standard time.
 
 ## Strategic Value Proposition
 
-In a technological landscape moving at the speed of AI, consistency in decision-making is the only sustainable competitive advantage. EASP applies proven methodologies (C4 Model, 6R Framework, ADR) to:
+In a technological landscape moving at the speed of AI, consistency in decision-making is the only sustainable competitive advantage. EAS applies proven methodologies (C4 Model, 6R Framework, ADR) to:
 
 - Reduce by 70% the time spent on repetitive technical documentation.
 - Standardize Decision-Making by eliminating cognitive biases in technology selection.
@@ -14,7 +14,7 @@ In a technological landscape moving at the speed of AI, consistency in decision-
 
 ## 🎯 Framework Architecture: The 5 Core Pillars
 
-EASP is a collection of **expert AI Assistants** specifically designed for Enterprise Architects and engineering leaders. Each skill embeds proven methodologies and frameworks refined through real-world CTO experience.
+EAS is a collection of **expert AI Assistants** specifically designed for Enterprise Architects and engineering leaders. Each skill embeds proven methodologies and frameworks refined through real-world CTO experience.
 Each agent in this repository is engineered to handle a critical phase of the architecture lifecycle. They are designed to:
 
 - **Accelerate** the production of quality documentation
@@ -24,40 +24,13 @@ Each agent in this repository is engineered to handle a critical phase of the ar
 
 Think of it like having an experienced EA advisor available 24/7:
 
-| Agent                         | Strategic Function            | Business Impact (XYZ Formula) |
-|-------------------------------|-------------------------------|-------------------------------|
-| **ADR Generator**             | Systematic decision logging.  | Improves traceability (X) by reducing drafting time (Y) through pre-validated templates (Z).|
-| **Documentation Multi-Tool**  | C4 Model & Context views.     | Accelerates onboarding (X) by 40% (Y) synthesizing fragmented info into coherent diagrams (Z).|
-| **Technology Assessment**     | Multi-dimensional analysis.   | Optimizes TCO (X) ensuring business alignment (Y) via weighted scoring matrices (Z).|
-| **Architectural Review**      | System & Microservices audit. | Lowers refactoring costs (X) identifying "God Services" (Y) before they hit production (Z).|
-| **Cloud Migration Planner**   | 6 Rs Migration Strategy.      | Minimizes migration risk (X) defining roadmaps based on criticality (Y) and impact analysis (Z).|
-
----
-
-## 🏗️ Architecture Decision Agent
-
-**What it's for**: Make and document critical architectural decisions systematically
-
-**When to use**:
-
-- Evaluating technology choices (databases, frameworks, cloud providers)
-- Planning major migrations or refactoring
-- Documenting architectural decisions for team alignment
-- Assessing and prioritizing technical debt
-
-**What you get**:
-
-- Architecture Decision Records (ADRs) following best practices
-- Trade-off analysis with clear criteria and scoring
-- Step-by-step migration plans with risk mitigation
-- Technical debt assessment with prioritized remediation roadmap
-
-**Covers**:
-
-- Tech stack evaluation (build vs buy, database selection, cloud architecture)
-- Architecture patterns (microservices, event-driven, serverless)
-- Migration strategies (big bang, strangler fig, phased approach)
-- Technical debt quantification and prioritization
+| Skill                            | Strategic Function            | Business Impact               |
+|----------------------------------|-------------------------------|-------------------------------|
+| **Architecture Decision Skill**  | Systematic decision logging.  | Improves traceability by reducing drafting time through pre-validated templates.  |
+| **Documentation Generation**     | C4 Model & Context views.     | Accelerates onboarding by 40% synthesizing fragmented info into coherent diagrams.|
+| **Technology Assessment**        | Multi-dimensional analysis.   | Optimizes TCO ensuring business alignment via weighted scoring matrices.          |
+| **Architectural Review**         | System & Microservices audit. | Lowers refactoring costs identifying "God Services" before they hit production.   |
+| **Cloud Migration Planner**      | 6 Rs Migration Strategy.      | Minimizes migration risk defining roadmaps based on criticality and impact analysis. |
 
 ---
 
@@ -179,7 +152,7 @@ When using the `SystemPrompt.md` for Technology Assessment, you must explicitly 
 
 ## 💡 Deployment & Integration
 
-EASP is LLM-agnostic and designed to work with Gemini 2.0/1.5, Claude 3.5, or GPT-4o.
+EAS is LLM-agnostic and designed to work with Gemini, Claude, ChatGpt, and other herness tools.
 
 ### 📂 Repository Structure
 
@@ -187,9 +160,9 @@ Each use case has a dedicated folder with this organization:
 
 ```txt
 use-case-name/
-+-- References/         # Methodological standards and templates (the Agent's specialized knowledge).
-+-- Examples/           # Real-world input/output scenarios to ensure consistency and quality.
-+-- SystemPrompt.md     # The core behavioral logic to be injected into your LLM.
++-- references/         # Methodological standards and templates (the Agent's specialized knowledge).
++-- examples/           # Real-world input/output scenarios to ensure consistency and quality.
++-- SKILL.md            # The core behavioral logic to be injected into your LLM.
 ```
 
 ### Integration Options
